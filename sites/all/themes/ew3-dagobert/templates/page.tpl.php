@@ -77,6 +77,7 @@
     <?php if ($logo): ?>
       <h1><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="Communauté de Communes Région de Condrieu - retour accueil" /></a></h1>
     <?php endif; ?>
+    <?php if(!$is_front) print '<img id="over_hb_all" src="http://localhost/ccrc_bis/sites/all/themes/ew3-dagobert/images/over_hb_all.png" alt="" />'; ?>
    
       <!-- /#name-and-slogan -->
 

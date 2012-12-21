@@ -2,7 +2,7 @@ body{
     background : #BECED9 url(../images/fond_top.png) repeat-x 0 0;
 }
 #over_body{
-    padding-bottom :133px;
+    padding-bottom :138px;
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
 .over_over_body{
@@ -35,4 +35,10 @@ body{
     top :44px;
     left :129px;
     z-index:9;
+}
+#over_hb_all{
+    position : absolute;
+    top :68px;
+    left :159px;
+    z-index:10;
 }
