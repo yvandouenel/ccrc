@@ -1,5 +1,13 @@
-#header{
-    background : url(../images/fond_top.png) repeat-x 0 0;
-    border : 1px solid red;
+body{
+    background : #BECED9 url(../images/fond_top.png) repeat-x 0 0;
 }
-
+#over_body{
+    padding-bottom :133px;
+    background :url(../images/footer1.jpg) repeat-x 50% 100%;
+}
+#main{
+    background : url(../images/bgMenu.png.jpg) no-repeat 0 0;
+}
+#footer{
+    /*background : url(../images/footer1.jpg) no-repeat 0 0;*/
+}
