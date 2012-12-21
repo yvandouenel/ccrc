@@ -5,9 +5,34 @@ body{
     padding-bottom :133px;
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
+.over_over_body{
+    background : url(../images/bgHeaderMenu.jpg) no-repeat 50% 68px;
+}
 #main{
-    background : url(../images/bgMenu.png.jpg) no-repeat 0 0;
+    
+    
+}
+#header{
+    position : relative;
+    height:217px;
 }
 #footer{
     /*background : url(../images/footer1.jpg) no-repeat 0 0;*/
+}
+
+/* bandeau ********************************************************************/
+#logo{
+    z-index:99;
+    position : absolute;
+    top :20px;
+    left :10px;
+}
+.view-images-bandeau-sauf-accueil ul{
+    list-style: none;
+}
+.view-images-bandeau-sauf-accueil{
+    position : absolute;
+    top :44px;
+    left :129px;
+    z-index:9;
 }
