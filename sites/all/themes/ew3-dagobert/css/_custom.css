@@ -8,6 +8,9 @@ body{
 .over_over_body{
     background : url(../images/bgHeaderMenu.jpg) no-repeat 50% 68px;
 }
+.over_over_body_home{
+    background : url(../images/bgHeaderMenu_home.jpg) no-repeat 50% 68px;
+}
 #main{
     
     
@@ -15,6 +18,11 @@ body{
 #header{
     position : relative;
     height:217px;
+}
+body.front #header{
+    position : relative;
+    height:500px;
+    border:1px solid red;
 }
 #footer{
     /*background : url(../images/footer1.jpg) no-repeat 0 0;*/
@@ -41,4 +49,11 @@ body{
     top :68px;
     left :159px;
     z-index:10;
+}
+/* Diaporama ******************************************************************/
+#views_slideshow_controls_text_diaporama_accueil-block{
+    position : absolute;
+    top : 150px;
+    left : 300px;
+    z-index:1000;
 }
