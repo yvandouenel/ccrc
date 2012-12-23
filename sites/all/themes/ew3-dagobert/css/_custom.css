@@ -1,8 +1,12 @@
 body{
     background : #BECED9 url(../images/fond_top.png) repeat-x 0 0;
 }
-#over_body{
+body.front #over_body{
     padding-bottom :138px;
+    background :url(../images/footer1.jpg) repeat-x 50% 100%;
+}
+#over_body{
+    padding-bottom :197px;
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
 .over_over_body{
@@ -21,7 +25,7 @@ body{
 }
 body.front #header{
     position : relative;
-    height:500px;
+    height:341px;
     border:1px solid red;
 }
 #footer{
@@ -44,6 +48,7 @@ body.front #header{
     left :129px;
     z-index:9;
 }
+
 #over_hb_all{
     position : absolute;
     top :68px;
@@ -51,9 +56,55 @@ body.front #header{
     z-index:10;
 }
 /* Diaporama ******************************************************************/
-#views_slideshow_controls_text_diaporama_accueil-block{
+
+#block-views-diaporama-accueil-block{
+    position : absolute;
+    top :68px;
+    left : 19px;
+    z-index:9;
+}
+#over_hb_home{
+    position : absolute;
+    top :68px;
+    left :0;
+    z-index:10;
+}
+/*#views_slideshow_controls_text_diaporama_accueil-block{
     position : absolute;
     top : 150px;
     left : 300px;
-    z-index:1000;
+    z-index:110;
+    border :1px solid red;
+}*/
+#views_slideshow_controls_text_diaporama_accueil-block a{
+    font-size : 0;
+}
+#views_slideshow_controls_text_previous_diaporama_accueil-block{
+    position : absolute;
+    top : 150px;
+    left : -68px;
+    display: block;
+    width :46px;
+    height :46px ;
+    background: url(../images/icons/flecheGSlider_911.png) no-repeat 0 0;
+    z-index:9999;
+}
+#views_slideshow_controls_text_next_diaporama_accueil-block{
+    position : absolute;
+    top : 150px;
+    left :945px;
+    display: block;
+    width :46px;
+    height :46px ;
+    background: url(../images/icons/flecheDSlider_910.png) no-repeat 0 0;
+    z-index:9999;
+}
+#views_slideshow_controls_text_pause_diaporama_accueil-block{
+    display: none;
+}
+#views_slideshow_controls_text_previous_diaporama_accueil-block:hover{
+    background: url(../images/icons/flecheGSlider_911.png) no-repeat 0 100%;
+}
+#views_slideshow_controls_text_next_diaporama_accueil-block:hover{
+    background: url(../images/icons/flecheDSlider_910.png) no-repeat 0 100%;
 }
