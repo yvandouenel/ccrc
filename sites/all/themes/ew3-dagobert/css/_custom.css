@@ -148,3 +148,12 @@ body.front #header{
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a:hover{
    background: url(../images/icons/btMarchePublic.png) no-repeat 0 100%;
 }
+.over_menu{
+    background: url(../images/bgTopInfobulle.png) no-repeat 0 0;
+    width:93px;
+    height:44px;
+    color : white;
+    padding:5px;
+    float: left;
+    z-index: 9999999;
+}
