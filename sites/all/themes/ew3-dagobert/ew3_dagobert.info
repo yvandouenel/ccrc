@@ -80,7 +80,7 @@ stylesheets[all][] = css/_custom.css
 ; Optionally add some JavaScripts to your theme.
 
 ;scripts[] = js/script.js
-
+scripts[] = js/top_menu.js
 
 
 ; This section lists the regions defined in Zen's default page.tpl.php and

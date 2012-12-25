@@ -33,6 +33,12 @@ body.front #header{
 }
 
 /* bandeau ********************************************************************/
+.region-header{
+    border : 1px solid transparent;
+}
+#header h1{
+    display: inline;
+}
 #logo{
     z-index:99;
     position : absolute;
@@ -86,7 +92,7 @@ body.front #header{
     display: block;
     width :46px;
     height :46px ;
-    background: url(../images/icons/flecheGSlider_911.png) no-repeat 0 0;
+    background: url(../images/icons/flecheGSlider.png) no-repeat 0 0;
     z-index:9999;
 }
 #views_slideshow_controls_text_next_diaporama_accueil-block{
@@ -96,15 +102,49 @@ body.front #header{
     display: block;
     width :46px;
     height :46px ;
-    background: url(../images/icons/flecheDSlider_910.png) no-repeat 0 0;
+    background: url(../images/icons/flecheDSlider.png) no-repeat 0 0;
     z-index:9999;
 }
 #views_slideshow_controls_text_pause_diaporama_accueil-block{
     display: none;
 }
 #views_slideshow_controls_text_previous_diaporama_accueil-block:hover{
-    background: url(../images/icons/flecheGSlider_911.png) no-repeat 0 100%;
+    background: url(../images/icons/flecheGSlider.png) no-repeat 0 100%;
 }
 #views_slideshow_controls_text_next_diaporama_accueil-block:hover{
-    background: url(../images/icons/flecheDSlider_910.png) no-repeat 0 100%;
+    background: url(../images/icons/flecheDSlider.png) no-repeat 0 100%;
+}
+/* Menus hauts ****************************************************************/
+.menu-name-menu-menu-commodit-haut ul{
+    list-style: none;
+    padding : 0;
+    margin : 0;
+    float : right;
+}
+.menu-name-menu-menu-commodit-haut ul li{
+    padding : 0;
+    margin : 0;
+    float : left;
+    list-style: none;
+}
+.menu-name-menu-menu-commodit-haut ul li a{
+    display :block;
+    float : left;
+    height: 49px;
+    margin: 0 2px;
+    text-indent: -5000px;
+    width: 47px;
+}
+
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-396 a{
+   background: url(../images/icons/btEmploi.png) no-repeat 0 0;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-396 a:hover{
+   background: url(../images/icons/btEmploi.png) no-repeat 0 100%;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a{
+   background: url(../images/icons/btMarchePublic.png) no-repeat 0 0;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a:hover{
+   background: url(../images/icons/btMarchePublic.png) no-repeat 0 100%;
 }
