@@ -25,7 +25,7 @@ body.front #over_body{
 }
 body.front #header{
     position : relative;
-    height:341px;
+    height:328px;
     border:1px solid red;
 }
 #footer{
@@ -158,4 +158,116 @@ body.front #header{
     z-index: 9999999;
     text-align: center;
     position:absolute;
+}
+/* search *********************************************************************/
+#search-block-form{
+    position : absolute;
+    top: 30px;
+    left : 500px;
+}
+/* Menu principal *************************************************************/
+#navigation ul.links li{
+    padding : 0;
+}
+#navigation ul.links li a{
+    display : block;
+    color : #685147;
+    height : 50px;
+    padding : 12px 0 0 0;
+    font-family: "Viga",sans-serif;
+    text-align: center;
+    text-decoration: none;
+}
+#navigation ul.links li.menu-410 a{
+    width:127px;
+    margin : 0 2px 0 16px;
+}
+#navigation ul.links li.menu-410 a:hover{
+    color : white;
+    background-color: #D40136;
+}
+#navigation ul.links li.menu-411 a{
+    width:94px;
+    margin : 0 10px 0 0;
+}
+#navigation ul.links li.menu-412 a{
+    width:110px;
+    margin :  0 15px 0 0;
+}
+#navigation ul.links li.menu-413 a{
+    width:140px;
+    margin :  0 10px 0 0;
+}
+#navigation ul.links li.menu-414 a{
+    width:156px;
+    margin :  0 5px 0 0;
+}
+#navigation ul.links li.menu-385 a{
+    width:216px;
+    margin : 0 1px;
+}
+/* Mega Menu ******************************************************************/
+#block-om-maximenu-om-maximenu-1{
+    margin-top:215px;
+}
+#block-om-maximenu-om-maximenu-1 h2.block-title{
+   position: absolute;
+   left:-4000px;
+}
+#block-om-maximenu-om-maximenu-1 .om-maximenu-content {
+    height:300px;
+    border:5px solid red;
+    width:875px;
+  }
+#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-menu_block{
+    width:250px;
+    float:left;
+    border:1px solid red;
+  }
+#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views{
+    width:250px;
+    float:left;
+    border:1px solid red;
+  }
+ #om-menu-menu-principal li.om-leaf a{
+    display : block;
+    color : #685147;
+    height : 50px;
+    padding : 12px 0 0 0;
+    font-family: "Viga",sans-serif;
+    text-align: center;
+    text-decoration: none;
+    line-height: 18px;
+}
+
+ #om-menu-menu-principal li.om-leaf{
+    font-size: 0.9em;
+  }
+#om-leaf-om-u1-654698953-2 a{
+    width:127px;
+    margin : 0 2px 0 16px;
+}
+#om-leaf-om-u1-654698953-2 a:hover{
+    color : white;
+    background-color: #D40136;
+}
+#om-leaf-om-u1-654698953-4 a{
+    width:94px;
+    margin : 0 10px 0 0;
+}
+#om-leaf-om-u1-654698953-3 a{
+    width:110px;
+    margin :  0 15px 0 0;
+}
+#om-leaf-om-u1-654698953-5 a{
+    width:140px;
+    margin :  0 10px 0 0;
+}
+#om-leaf-om-u1-654698953-6 a{
+    width:156px;
+    margin :  0 5px 0 0;
+}
+#om-leaf-om-u1-654698953-1 a{
+    width:216px;
+    margin : 0 1px;
 }
