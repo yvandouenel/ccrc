@@ -16,7 +16,7 @@ body.front #over_body{
     background : url(../images/bgHeaderMenu_home.jpg) no-repeat 50% 68px;
 }
 #main{
-    
+   margin-top: 50px;
     
 }
 #header{
@@ -209,6 +209,10 @@ body.front #header{
 /* Mega Menu ******************************************************************/
 #block-om-maximenu-om-maximenu-1{
     margin-top:215px;
+    padding-left:1px;
+}
+body.front #block-om-maximenu-om-maximenu-1{
+    margin-top:327px;
 }
 #block-om-maximenu-om-maximenu-1 h2.block-title{
    position: absolute;
@@ -232,42 +236,98 @@ body.front #header{
  #om-menu-menu-principal li.om-leaf a{
     display : block;
     color : #685147;
-    height : 50px;
-    padding : 12px 0 0 0;
+    height : 44px;
+    padding : 18px 0 0 0;
     font-family: "Viga",sans-serif;
     text-align: center;
     text-decoration: none;
     line-height: 18px;
+    font-weight: bold;
 }
 
  #om-menu-menu-principal li.om-leaf{
     font-size: 0.9em;
   }
+  #om-menu-menu-principal li.om-leaf a:hover{
+    color :white;
+  }
 #om-leaf-om-u1-654698953-2 a{
     width:127px;
     margin : 0 2px 0 16px;
 }
-#om-leaf-om-u1-654698953-2 a:hover{
-    color : white;
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-2 a:hover{
     background-color: #D40136;
 }
 #om-leaf-om-u1-654698953-4 a{
-    width:94px;
-    margin : 0 10px 0 0;
+    width:95px;
+    margin : 0 2px 0 0;
+}
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-4 a:hover{
+    background-color: #DD9D17;
 }
 #om-leaf-om-u1-654698953-3 a{
-    width:110px;
-    margin :  0 15px 0 0;
+    width:135px;
+    margin :  0 2px 0 0;
+}
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-3 a:hover{
+    background-color: #EE8303;
 }
 #om-leaf-om-u1-654698953-5 a{
-    width:140px;
-    margin :  0 10px 0 0;
+    width:143px;
+    margin :  0 2px 0 0;
+}
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-5 a:hover{
+    background-color: #99BF10;
 }
 #om-leaf-om-u1-654698953-6 a{
-    width:156px;
-    margin :  0 5px 0 0;
+    width:159px;
+    margin :  0 1px 0 0;
+}
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-6 a:hover{
+    background-color: #5F9C03;
 }
 #om-leaf-om-u1-654698953-1 a{
-    width:216px;
+    width:217px;
     margin : 0 1px;
+}
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-1 a:hover{
+    background-color: #4F9CCA;
+}
+
+/* added **********************************************************************/
+.om-maximenu ul.om-menu li.om-leaf {
+position:static !important;
+}
+/* This sets the width of the dropdown to span the full 940px of the menu region defined by Omega theme.*/
+
+.om-maximenu-no-style .om-maximenu-content {
+left:18px;
+top : 68px;
+bottom:0;
+}
+/* This should fix your z-index issues in IE 7. It just forces anything in the header section to be on top of anything in the content section. These are Omega theme divs but the same principal should be applicable to other themes.
+*/
+#section-header {
+position:relative;
+z-index:2
+}
+#section-content {
+position:relative;
+z-index:1;
+}
+/* Blocks placed specified for each OM Maximenu link will display on top of eachother unless you float them. You can also set fixed or percentage widths, padding, borders, etc... to achieve something similar to CNN Money.
+*/
+.om-maximenu .om-maximenu-content .block {
+float:left;
+}
+/* To make the dropdown stand out against a white background, i added these styles that appear to safely across browsers (IE specifically).*/
+
+#zone-menu .om-maximenu-middle-right {
+padding:10px 0;
+margin:0 !important;
+background:#fafafa;
+border-width:0 5px 5px 5px;
+border-style:solid;
+border-color:#a9a9a9;
+width:auto;
 }
