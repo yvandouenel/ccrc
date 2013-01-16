@@ -222,17 +222,82 @@ body.front #block-om-maximenu-om-maximenu-1{
     height:300px;
     border:5px solid red;
     width:875px;
+    border-radius: 8px 8px 8px 8px;
+    background-color : #F5F5F5;
+    /**/
   }
+.om-maximenu-no-style .om-maximenu-middle {
+    background : #F5F5F5 url(../images/fond_big_menu.gif) no-repeat 52% 0;
+}
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-2 .om-maximenu-content{border-color: #D40136; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-4 .om-maximenu-content{border-color: #DD9D17; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-3 .om-maximenu-content{border-color: #EE8303; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-5 .om-maximenu-content{border-color: #99BF10; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-6 .om-maximenu-content{border-color: #5F9C03; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-1 .om-maximenu-content{border-color: #4F9CCA; }
+/* Première colonne du megamenu ************************************************/
+#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block{
+    width:315px;
+    padding : 0;
+    margin : 20px 0 0 0;
+}
+#om-menu-menu-principal li.om-leaf ul.menu{
+    padding : 0;
+    margin : 0;
+}
+#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block .views-field-title{
+    margin: 0;
+    padding : 0;
+    font-weight: 700;
+    font-style: normal;
+    clear: both;
+    font-family: "Viga","Arial", sans-serif;
+    font-size : 1.3em;
+}
+
+/* deuxième colonne du megamenu ************************************************/
 #block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-menu_block{
     width:250px;
     float:left;
-    border:1px solid red;
+    margin : 15px 20px 0 0;
   }
-#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views{
+  #om-menu-menu-principal li.om-leaf li.leaf{
+    line-height: 14px;
+    list-style: none;
+    margin : 0;
+    padding : 0;
+    text-align:left;
+}
+#om-menu-menu-principal li.om-leaf li.leaf a{
+    line-height: 14px;
+    text-align:left;
+    padding : 10px 0 0 0;
+    margin : 0;
+    height : 20px;
+    width : 210px;
+    padding-left : 38px;
+    color : black;
+    background : url(../images/icons/bgLienMegaMenu.png) no-repeat 17px 10px;
+    border-radius: 3px 3px 3px 3px;
+}
+#om-menu-menu-principal li.om-leaf li.leaf a:hover{
+    color : white;
+    background : url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 17px 10px;
+}
+/* Troisième colonne du megamenu ************************************************/
+.views-field-field-image-mega-menu{
+    float : left;
+    margin-top : 29px;
+}
+.views-field-field-image-mega-menu img{
+     border-radius: 8px 8px 8px 8px;
+}
+ 
+/*#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views{
     width:250px;
     float:left;
-    border:1px solid red;
-  }
+  }*/
+
  #om-menu-menu-principal li.om-leaf a{
     display : block;
     color : #685147;
@@ -330,4 +395,7 @@ border-width:0 5px 5px 5px;
 border-style:solid;
 border-color:#a9a9a9;
 width:auto;
+}
+.om-maximenu .om-maximenu-open {
+display: none;
 }
