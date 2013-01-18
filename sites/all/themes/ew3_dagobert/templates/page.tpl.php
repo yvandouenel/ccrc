@@ -78,8 +78,8 @@
       <h1><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="Communauté de Communes Région de Condrieu - retour accueil" /></a></h1>
     <?php endif; ?>
     <?php 
-        if(!$is_front) print '<img id="over_hb_all" src="'.$GLOBALS['base_path'].'/sites/all/themes/ew3-dagobert/images/over_hb_all.png" alt="" />';
-        else print '<img id="over_hb_home" src="'.$GLOBALS['base_path'].'/sites/all/themes/ew3-dagobert/images/bgBandeauAccueil.png" alt="" />';
+        if(!$is_front) print '<img id="over_hb_all" src="/'.drupal_get_path("theme", "ew3_dagobert").'/images/over_hb_all.png" alt="" />';
+        else print '<img id="over_hb_home" src="/'.drupal_get_path("theme", "ew3_dagobert").'/images/bgBandeauAccueil.png" alt="" />';
     ?>
    
       <!-- /#name-and-slogan -->
