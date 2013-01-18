@@ -119,6 +119,12 @@ function ew3_dagobert_preprocess_maintenance_page(&$variables, $hook) {
   ew3_dagobert_preprocess_page($variables, $hook);
 }
 // */
+function ew3_dagobert_preprocess_html(&$variables, $hook) {
+  $options = array('type' => 'file');  // indique à Drupal que le javascript dans drupal_add_js est un fichier
+   if ((in_array('front', $variables['classes_array']))){
+    drupal_add_js(drupal_get_path('theme', 'ew3_dagobert'). '/js/customdiapoexpert.js', $options);
+  }
+}
 
 /**
  * Override or insert variables into the html templates.

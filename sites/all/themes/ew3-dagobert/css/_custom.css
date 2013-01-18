@@ -405,3 +405,43 @@ width:auto;
 .om-maximenu .om-maximenu-open {
 display: none;
 }
+
+/* carte flash ****************************************************************/
+#block-block-1 {
+    float: left;
+    width: 312px;
+}
+/* Actualités *****************************************************************/
+#block-views-actualites-accueil-block{
+    float: left;
+    width: 312px;
+    height : 255px;
+    overflow: hidden;
+}
+#block-views-actualites-accueil-block ul{
+    padding: 0;
+    margin :0;
+    position:relative;
+}
+#block-views-actualites-accueil-block ul li{
+    list-style: none;
+    float: left;
+}
+#controleurs{
+    width : 100px;
+    position : absolute;
+    top:65px;
+    left:560px;
+    width: 50px;
+}
+.controleur{
+    width:25px;
+    height: 28px;
+    float : left;
+}
+.views-field-field-summary-news{
+    position : relative;
+    width:289px;
+    height: 160px;
+    background-color: white;
+}
