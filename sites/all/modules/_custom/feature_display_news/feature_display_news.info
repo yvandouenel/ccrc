@@ -1,0 +1,17 @@
+name = Feature Display News
+core = 7.x
+package = App
+php = 5.2.4
+version = 7.x-1.0
+project = feature_display_news
+dependencies[] = ds
+dependencies[] = image
+dependencies[] = views
+features[ctools][] = ds:ds:1
+features[ctools][] = views:views_default:3.0
+features[ds_layout_settings][] = node|actualites|default
+features[features_api][] = api:1
+features[image][] = actu_home
+features[views_view][] = actualites_accueil
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/_custom

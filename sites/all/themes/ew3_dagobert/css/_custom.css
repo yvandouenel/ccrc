@@ -9,7 +9,7 @@ body.front #over_body{
     display: none;
 }
 #first-time{
-   display: none;
+   /*display: none;*/
 }
 #over_body{
     padding-bottom :197px;
