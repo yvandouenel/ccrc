@@ -1,7 +1,7 @@
 
 //paramètres de base
 var diaporama_width = 311;
-var diaporama_height = 265;
+var diaporama_height = 260;
 var class_text_control = ''; //la classe ".controleur" doit être utilisée
 var create_controleur = 1; //création des "controleurs" en chiffres
 var over_image = 1; // le résumé apparait au survol de l'image
@@ -210,12 +210,13 @@ jQuery(document).ready(function(){
           diapo.previous_diapo();
        });
 
-       //rendre les images réactives au survol
+       //Cacher le résumé et rendre les images réactives au survol
        if(over_image){
+           jQuery(class_du_resume).hide();
            jQuery(li_du_diapo+" img").mouseover(function(event){
-                jQuery(class_du_resume).show();
-                jQuery(class_du_resume).animate({"top": "-=214px"}, 400,"swing");
-                jQuery(class_du_resume).animate({opacity: 0.8}, 5000);
+                setTimeout(function(){jQuery(class_du_resume).show();},500);
+                setTimeout(function(){jQuery(class_du_resume).animate({"top": "-=214px"}, 400,"swing");},500);
+                setTimeout(function(){jQuery(class_du_resume).animate({opacity: 0.8}, 5000);},500);
             });
             jQuery(class_du_resume).mouseleave(function(event){
                 jQuery(class_du_resume).hide();
