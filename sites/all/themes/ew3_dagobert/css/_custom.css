@@ -8,6 +8,9 @@ body.front #over_body{
 #secondary-menu{
     /*display: none;*/
 }
+.clear{
+    clear:both;
+}
 #first-time{
    display: none;
 }
@@ -121,6 +124,12 @@ body.front #header{
     background: url(../images/icons/flecheDSlider.png) no-repeat 0 100%;
 }
 /* Menus hauts ****************************************************************/
+#block-menu-block-1{
+    position : absolute;
+    top: 10px;
+    left : 454px;
+    width: 230px;
+}
 .menu-name-menu-menu-commodit-haut ul{
     list-style: none;
     padding : 0;
@@ -165,12 +174,54 @@ body.front #header{
     text-align: center;
     position:absolute;
 }
+/* Menu haut Actus ************************************************************/
+#block-menu-menu-agenda-actualites{
+   position : absolute;
+    top: 30px;
+    left : 698px;
+    width: 243px;
+}
+#block-menu-menu-agenda-actualites h2{
+   position : absolute;
+    left : -6000px;
+}
+#block-menu-menu-agenda-actualites ul{
+   padding: 0;
+   margin:0;
+}
+#block-menu-menu-agenda-actualites ul li{
+   list-style: none;
+   padding: 0;
+   margin:0;
+}
+#block-menu-menu-agenda-actualites ul li a{
+   color : white;
+}
 /* search *********************************************************************/
 #search-block-form{
     position : absolute;
-    top: 30px;
-    left : 500px;
+    top: 35px;
+    left : 283px;
+    width: 186px;
+    background: url(../images/icons/bgSearch.gif) no-repeat 0 0;
+    height: 24px;
 }
+#search-block-form #edit-submit{
+    width: 26px;
+    text-indent: -6000px;
+    position: relative;
+    left:-4px;
+    border:0;
+    background: none;
+}
+#search-block-form input{
+    border:0;
+    margin:0;
+    padding : 0;
+    height: 18px;
+    background: none;
+}
+
 /* Menu principal *************************************************************/
 #navigation ul.links li{
     padding : 0;
@@ -498,6 +549,45 @@ a#all-actu-home:hover{
     height: 135px;
     color :#3C82B1;
     font-size:0.8em;
+}
+
+/* page actu ******************************************************************/
+.page-actu-all ul{
+    background:#F5F5F5;
+    border-radius : 8px 8px 8px 8px;
+    padding:20px;
+    margin:0 0 30px 0;
+}
+.page-actu-all #all-actu-home{
+    display:none;
+}
+.page-actu-all ul li{
+    list-style: none;
+    clear : both;
+}
+.page-actu-all ul li .views-field-field-image-news{
+    float:left;
+}
+.page-actu-all ul li .views-field-field-summary-news{
+    float : left;
+    width : 600px;
+    margin : 0;
+}
+.page-actu-all ul li .views-field-field-summary-news a{
+    width:600px;
+}
+.page-actu-all ul li h3.title-actu-in-page{
+    margin-bottom : 0px;
+}
+.page-actu-all ul li h3.title-actu-in-page a{
+    background: url(../images/bgH2InterBleu.gif) no-repeat 10px 8px;
+    padding-left: 20px;
+    font-size: 1.2em;
+    color: #000;
+    font-family: "Viga", verdana;
+    margin : 0px;
+    text-decoration :none;
+    padding-top: 0;
 }
 
 /* Agenda *********************************************************************/
