@@ -23,6 +23,8 @@
  */
 ?>
 <?php
+$output = str_replace("00:00", "",$output);
 $output = str_replace(" - ", " ",$output);
+$output = str_replace(":00", "h",$output);
 print $output;
 ?>

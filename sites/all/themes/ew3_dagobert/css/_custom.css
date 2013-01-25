@@ -520,16 +520,23 @@ a#all-actu-home:hover{
 }
 #block-views-agenda-block ul li{
     margin: 0 0 5px 0;
-    padding: 9px 9px;
+    padding: 2px 9px;
     list-style: none;
     background-color: #F5F5F5;
     border:3px solid #F5F5F5;
     border-radius : 8px 8px 8px 8px;
+    position : relative;
+    height: 45px;
 }
 #block-views-agenda-block ul li .views-field-field-agenda-period,
 #block-views-agenda-block ul li .views-field-field-agenda-period-1{
     font-size : 0.7em;
     display : inline;
+    position : absolute;
+    top:20px;
+}
+#block-views-agenda-block ul li .views-field-field-agenda-period-1{
+    left :135px;
 }
 #block-views-agenda-block ul li .views-field-field-agenda-period div,
 #block-views-agenda-block ul li .views-field-field-agenda-period-1 div{
@@ -542,6 +549,11 @@ a#all-actu-home:hover{
 #block-views-agenda-block ul li a {
     color: #D30D40;
     float: none;
-    font-size: 0.9em;
+    font-size: 0.7em;
     font-weight: bold;
+    display:block;
+    height :40px;
+    width:262px;
+    z-index : 10;
+    position : absolute;
 }
