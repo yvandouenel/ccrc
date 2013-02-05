@@ -73,10 +73,11 @@ body.front #header{
 /* Diaporama ******************************************************************/
 
 #block-views-diaporama-accueil-block{
-    position : absolute;
+    /*position : absolute;
     top :68px;
     left : 19px;
-    z-index:9;
+    z-index:9;*/
+    margin:67px 0 0 0;
 }
 #over_hb_home{
     position : absolute;
@@ -109,7 +110,7 @@ body.front #header{
     top : 150px;
     left :945px;
     display: block;
-    width :46px;
+   width :46px;
     height :46px ;
     background: url(../images/icons/flecheDSlider.png) no-repeat 0 0;
     z-index:9999;
@@ -125,9 +126,7 @@ body.front #header{
 }
 /* Menus hauts ****************************************************************/
 #block-menu-block-1{
-    position : absolute;
-    top: 10px;
-    left : 454px;
+    margin :10px 0 0 454px;
     width: 230px;
 }
 .menu-name-menu-menu-commodit-haut ul{
@@ -196,9 +195,19 @@ body.front #header{
 }
 #block-menu-menu-agenda-actualites ul li a{
    color : white;
+   background: #43291B url(../images/icons/bgActuPlus.png) no-repeat 0 0;
+   font-size : 0.6em;
+   width : 111px;
+   padding-left: 10px;
+   height : 24px;
+   display : block;
+   text-decoration: none;
+}
+#block-menu-menu-agenda-actualites ul li a:hover{
+   background: #43291B url(../images/icons/bgActuPlus.png) no-repeat 0 100%;
 }
 /* search *********************************************************************/
-#search-block-form{
+#block-search-form{
     position : absolute;
     top: 35px;
     left : 283px;
@@ -225,6 +234,7 @@ body.front #header{
 /* Menu principal *************************************************************/
 #navigation ul.links li{
     padding : 0;
+    margin:0;
 }
 #navigation ul.links li a{
     display : block;
@@ -264,12 +274,11 @@ body.front #header{
     margin : 0 1px;
 }
 /* Mega Menu ******************************************************************/
-#block-om-maximenu-om-maximenu-1{
-    margin-top:215px;
-    padding-left:1px;
-}
 body.front #block-om-maximenu-om-maximenu-1{
-    margin-top:327px;
+    margin:-6px 0 0 -1px;
+}
+#block-om-maximenu-om-maximenu-1{
+     margin:215px 0 0 1px;
 }
 #block-om-maximenu-om-maximenu-1 h2.block-title{
    position: absolute;
