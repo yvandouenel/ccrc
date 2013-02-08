@@ -43,6 +43,22 @@ body.front #header{
 .region-bottom{
 
 }
+/* fil d'ariane ***************************************************************/
+.breadcrumb{
+    background-color: #4E9CD0;
+    border-radius : 8px 8px 8px 8px;
+    color : white;
+    margin-bottom : 20px;
+    padding : 5px 0 5px 5px;
+}
+.breadcrumb li a{
+   color : white;
+   font-size :0.9em;
+   text-decoration: none;
+}
+.section-jeunesse-emploi .breadcrumb{
+    background-color: #629A00;
+}
 
 /* menu bas gauche ************************************************************/
 div#block-menu-menu-menus-bas-gauche ul{
@@ -741,10 +757,17 @@ a#all-actu-home:hover{
 h2#page-title{
     color: #000;
     line-height: 12px;
-    background: url(../images/bgH1InterBleu.gif) no-repeat 0 100%;
+    border-bottom : 3px solid #4E9CD0;
     padding-bottom: 20px;
     font-size: 1.75em;
-    margin: 0 0 5px -10px;
     padding-top: 5px;
     width: 705px;
+}
+.section-jeunesse-emploi h2#page-title{
+    border-bottom : 3px solid #629A00;
+}
+.node-page{
+    background-color: #FFF;
+    border-radius : 8px 8px 8px 8px;
+    padding : 24px 12px;
 }
