@@ -2,7 +2,7 @@ body{
     background : #BECED9 url(../images/fond_top.png) repeat-x 0 0;
 }
 body.front #over_body{
-    padding-bottom :197px;
+    padding-bottom :150px;
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
 #secondary-menu{
@@ -15,7 +15,7 @@ body.front #over_body{
    display: none;
 }
 #over_body{
-    padding-bottom :197px;
+    padding-bottom :150px;
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
 .over_over_body{
@@ -40,7 +40,80 @@ body.front #header{
 #footer{
     /*background : url(../images/footer1.jpg) no-repeat 0 0;*/
 }
+.region-bottom{
 
+}
+
+/* menu bas gauche ************************************************************/
+div#block-menu-menu-menus-bas-gauche ul{
+    margin:0;
+    padding :0;
+    position : relative;
+    top: 10px;
+}
+div#block-menu-menu-menus-bas-gauche ul li{
+    margin:0;
+    padding :0;
+    list-style: none;
+    float : left;
+}
+div#block-menu-menu-menus-bas-gauche ul li.first{
+   border-right : 1px dashed #40281E;
+}
+div#block-menu-menu-menus-bas-gauche ul li.first:hover{
+   border-right : 0;
+}
+div#block-menu-menu-menus-bas-gauche ul li a {
+   display : block;
+   border-radius : 8px 8px 8px 8px;
+   padding : 0 10px;
+   text-decoration : none;
+   color : #40281E;
+   text-transform: uppercase;
+   font-size: 0.8em;
+   font-family : arial,sans-serif;
+}
+div#block-menu-menu-menus-bas-gauche ul li a:hover{
+    background-color: #E4202E;
+    color : white;
+}
+/* menus bas centre ***********************************************************/
+#wrapperInnerFooter {
+    background-color: #43291A;
+    width: 960px;
+    height: 50px;
+    position: relative;
+    top:100px;
+    margin: 0 auto;
+}
+#wrapperInnerFooter ul li a:hover {
+    color: #CCC;
+}
+#wrapperInnerFooter ul li a {
+    text-decoration: none;
+    color: #FFF;
+}
+#wrapperInnerFooter ul li {
+    display: inline;
+    font-size: x-small;
+    padding: 0 5px 0 0;
+    list-style: none;
+}
+.fluxRSS {
+    position: relative;
+    left: 900px;
+    top: -70px;
+}
+.fluxRSS a {
+    background: url(../images/icons/fluxRSS.gif) no-repeat 0 0;
+    height: 43px;
+    width: 38px;
+    display: block;
+    text-indent: -9999px;
+}
+.fluxRSS a:hover {
+    background: url(../images/icons/fluxRSS.gif) no-repeat 0 100%;
+}
 /* bandeau ********************************************************************/
 .region-header{
     border : 1px solid transparent;
@@ -97,8 +170,8 @@ body.front #header{
 }
 #views_slideshow_controls_text_previous_diaporama_accueil-block{
     position : absolute;
-    top : 150px;
-    left : -68px;
+    top : 225px;
+    left : 20px;
     display: block;
     width :46px;
     height :46px ;
@@ -107,10 +180,10 @@ body.front #header{
 }
 #views_slideshow_controls_text_next_diaporama_accueil-block{
     position : absolute;
-    top : 150px;
-    left :945px;
+    top : 225px;
+    left :912px;
     display: block;
-   width :46px;
+    width :46px;
     height :46px ;
     background: url(../images/icons/flecheDSlider.png) no-repeat 0 0;
     z-index:9999;
@@ -205,6 +278,11 @@ body.front #header{
 }
 #block-menu-menu-agenda-actualites ul li a:hover{
    background: #43291B url(../images/icons/bgActuPlus.png) no-repeat 0 100%;
+}
+/* Menus bas gauche ***********************************************************/
+#block-menu-menu-menus-bas-gauche h2{
+   position : absolute;
+   left : -6000px;
 }
 /* search *********************************************************************/
 #block-search-form{
@@ -374,6 +452,7 @@ body.front #block-om-maximenu-om-maximenu-1{
     text-decoration: none;
     line-height: 18px;
     font-weight: bold;
+    font-size: 0.9em;
 }
 
  #om-menu-menu-principal li.om-leaf{
@@ -387,14 +466,14 @@ body.front #block-om-maximenu-om-maximenu-1{
     margin : 0 2px 0 16px;
 }
 #om-menu-menu-principal li#om-leaf-om-u1-654698953-2 a:hover{
-    background-color: #D40136;
+    background-color: #DD9D17;
 }
 #om-leaf-om-u1-654698953-4 a{
     width:95px;
     margin : 0 2px 0 0;
 }
 #om-menu-menu-principal li#om-leaf-om-u1-654698953-4 a:hover{
-    background-color: #DD9D17;
+    background-color: #D40136;
 }
 #om-leaf-om-u1-654698953-3 a{
     width:135px;
@@ -626,6 +705,7 @@ a#all-actu-home:hover{
     border-radius : 8px 8px 8px 8px;
     position : relative;
     height: 45px;
+    font-family: arial, sans-serif
 }
 #block-views-agenda-block ul li .views-field-field-agenda-period,
 #block-views-agenda-block ul li .views-field-field-agenda-period-1{
@@ -655,4 +735,16 @@ a#all-actu-home:hover{
     width:262px;
     z-index : 10;
     position : absolute;
+}
+
+/* Pages classiques **********************************************************/
+h2#page-title{
+    color: #000;
+    line-height: 12px;
+    background: url(../images/bgH1InterBleu.gif) no-repeat 0 100%;
+    padding-bottom: 20px;
+    font-size: 1.75em;
+    margin: 0 0 5px -10px;
+    padding-top: 5px;
+    width: 705px;
 }
