@@ -295,6 +295,31 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 #block-menu-menu-agenda-actualites ul li a:hover{
    background: #43291B url(../images/icons/bgActuPlus.png) no-repeat 0 100%;
 }
+/* Menus gauche ***************************************************************/
+.region-sidebar-first ul.menu{
+    margin : 0;
+    padding : 0;
+}
+.region-sidebar-first ul.menu li{
+    list-style: none;
+    margin : 0;
+    padding : 0;
+}
+.region-sidebar-first ul.menu li a{
+    font-size: 100%;
+    text-transform: none;
+    text-align: left;
+    line-height: 1em;
+    color: #000;
+    font-weight: normal;
+    font-family: "Viga",sans-serif;
+    text-decoration: none;
+    background : url(../images/icons/bgMenuleft.png) no-repeat 0 5px;
+    padding-left : 20px;
+}
+body.section-developpement-economique .region-sidebar-first ul.menu li a:hover{
+    background : url(../images/icons/bgMenuBleu.png) no-repeat 0 5px;
+}
 /* Menus bas gauche ***********************************************************/
 #block-menu-menu-menus-bas-gauche h2{
    position : absolute;
