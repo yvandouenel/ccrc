@@ -6,7 +6,7 @@ body.front #over_body{
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
 #secondary-menu{
-    /*display: none;*/
+    display: none;
 }
 .clear{
     clear:both;
@@ -305,17 +305,37 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     margin : 0;
     padding : 0;
 }
+.region-sidebar-first ul.menu li ul{
+    padding : 0 0 0 20px;
+}
+
 .region-sidebar-first ul.menu li a{
     font-size: 100%;
     text-transform: none;
     text-align: left;
     line-height: 1em;
     color: #000;
-    font-weight: normal;
+    font-weight: bold;
     font-family: "Viga",sans-serif;
     text-decoration: none;
     background : url(../images/icons/bgMenuleft.png) no-repeat 0 5px;
     padding-left : 20px;
+    display: block;
+    margin :20px 0 5px 0;
+   
+}
+.region-sidebar-first ul.menu li ul li a{
+    padding : 5px 0 6px 20px;
+    background-image :none;
+    font-weight: normal;
+    border-left: 3px solid #DD9D17;
+    margin :0;
+}
+.region-sidebar-first ul.menu li ul li a.active{
+    font-weight: normal;
+    color : white;
+    background-color: #DD9D17;
+    border-left: 3px solid #DD9D17;
 }
 body.section-developpement-economique .region-sidebar-first ul.menu li a:hover{
     background : url(../images/icons/bgMenuBleu.png) no-repeat 0 5px;
@@ -791,8 +811,34 @@ h2#page-title{
 .section-jeunesse-emploi h2#page-title{
     border-bottom : 3px solid #629A00;
 }
-.node-page{
+.node-page, .node-commune{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
+}
+/* Pages élus *****************************************************************/
+li.liste-elus{
+    list-style: none;
+    margin:0;
+    padding:0;
+    float : left;
+}
+li.liste-elus span.field-content a{
+   width : 100px;
+   display: block;
+   margin:0 30px 30px 0;
+   text-align: center;
+   color : #981D22;
+}
+li.liste-elus span.field-content a:hover{
+   color : #000;
+}
+div.view-elus{
+    padding-top:0;
+    border:1px solid white;
+}
+.view-id-elus{
+    background-color: #FFF;
+    padding: 0;
+    margin: 0;
 }
