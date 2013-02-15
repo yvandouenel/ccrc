@@ -43,14 +43,31 @@ body.front #header{
 .region-bottom{
 
 }
+/* basiques *******************************************************************/
+#main div#content a{
+    color : #981D22;
+}
+/*titres **********************************************************************/
+#main h3{
+    color: #000000;
+    font-size: 1.2em;
+    font-family: "Viga", arial;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0.9em 0 0.5em;
+}
 /* fil d'ariane ***************************************************************/
 .breadcrumb{
     background-color: #4E9CD0;
     border-radius : 8px 8px 8px 8px;
     color : white;
     margin-bottom : 20px;
-    padding : 5px 0 5px 5px;
-    font-size :0.8em;
+    padding : 5px 0 5px 15px;
+    font-size :0.9em;
+}
+body.section-communaute-de-communes .breadcrumb{
+    background-color: #DD9D17;
 }
 .breadcrumb li a{
    color : white;
@@ -433,23 +450,25 @@ body.front #block-om-maximenu-om-maximenu-1{
 .om-maximenu-no-style .om-maximenu-middle {
     background : #F5F5F5 url(../images/fond_big_menu.gif) no-repeat 52% 0;
 }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-2 .om-maximenu-content{border-color: #D40136; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-2 .om-maximenu-content{border-color: #DD9D17; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-4 .om-maximenu-content{border-color: #DD9D17; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-3 .om-maximenu-content{border-color: #EE8303; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-5 .om-maximenu-content{border-color: #99BF10; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-6 .om-maximenu-content{border-color: #5F9C03; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-1 .om-maximenu-content{border-color: #4F9CCA; }
 /* Première colonne du megamenu ************************************************/
-#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block{
+#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block,
+.block-views-id-textes_mega_menus-block_1 {
     width:315px;
     padding : 0;
     margin : 20px 0 0 0;
 }
+
 #om-menu-menu-principal li.om-leaf ul.menu{
     padding : 0;
     margin : 0;
 }
-#block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block .views-field-title{
+#om-menu-menu-principal .views-field-title{
     margin: 0;
     padding : 0;
     font-weight: 700;
@@ -457,6 +476,10 @@ body.front #block-om-maximenu-om-maximenu-1{
     clear: both;
     font-family: "Viga","Arial", sans-serif;
     font-size : 1.3em;
+}
+#om-menu-menu-principal p{
+    margin: 1.5em 0 0 0;
+
 }
 
 /* deuxième colonne du megamenu ************************************************/
@@ -472,7 +495,8 @@ body.front #block-om-maximenu-om-maximenu-1{
     padding : 0;
     text-align:left;
 }
-#om-menu-menu-principal li.om-leaf li.leaf a{
+#om-menu-menu-principal li.om-leaf li.leaf a,
+#om-menu-menu-principal li.om-leaf ul.menu li a{
     line-height: 14px;
     text-align:left;
     padding : 10px 0 0 0;
@@ -805,12 +829,14 @@ h2#page-title{
     padding-bottom: 20px;
     font-size: 1.75em;
     padding-top: 5px;
-    width: 705px;
 }
 .section-jeunesse-emploi h2#page-title{
     border-bottom : 3px solid #629A00;
 }
-.node-page, .node-commune,.node-liste-elus{
+body.section-communaute-de-communes  h2#page-title{
+    border-bottom : 3px solid #DD9D17;
+}
+.node-page, .node-commune,.node-liste-elus, .node-fiche-elu{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
@@ -840,4 +866,37 @@ div.view-elus{
     background-color: #FFF;
     padding: 0;
     margin: 0;
+}
+.node-liste-elus p{
+    margin:0;
+}
+.node-liste-elus div.item-list ul{
+    padding:0;
+    margin:0;
+}
+.table_fiche_elu td{
+    vertical-align: top;
+}
+.table_fiche_elu td.td_fiche_elu .field-label{
+    line-height: 1.2;
+    font-weight: 700;
+    font-style: normal;
+    clear: both;
+    font-family: "Viga", arial;
+    font-size: 1.6em;
+    color : #DD9D17;
+}
+.table_fiche_elu td.td_fiche_elu .field-items{
+    margin-top: 6px;
+}
+.table_fiche_elu td.td_fiche_elu{
+    width:100%;
+    padding-left:30px;
+}
+.table_fiche_elu td.td_fiche_elu p{
+   margin:0;
+   padding:0;
+}
+.separator-label-elu{
+    margin-top: 20px;
 }
