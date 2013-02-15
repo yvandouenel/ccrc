@@ -50,11 +50,10 @@ body.front #header{
     color : white;
     margin-bottom : 20px;
     padding : 5px 0 5px 5px;
+    font-size :0.8em;
 }
 .breadcrumb li a{
    color : white;
-   font-size :0.9em;
-   text-decoration: none;
 }
 .section-jeunesse-emploi .breadcrumb{
     background-color: #629A00;
@@ -702,7 +701,7 @@ a#all-actu-home:hover{
 
 /* page actu ******************************************************************/
 .page-actu-all ul{
-    background:#F5F5F5;
+    background:#FFF;
     border-radius : 8px 8px 8px 8px;
     padding:20px;
     margin:0 0 30px 0;
@@ -811,7 +810,7 @@ h2#page-title{
 .section-jeunesse-emploi h2#page-title{
     border-bottom : 3px solid #629A00;
 }
-.node-page, .node-commune{
+.node-page, .node-commune,.node-liste-elus{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
