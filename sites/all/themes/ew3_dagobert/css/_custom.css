@@ -671,7 +671,7 @@ display: none;
     background : url(../images/bgActuAccueil.png) no-repeat 0 30px;
 
 }
-a#all-actu-home{
+#main div#content a#all-actu-home{
     display:block;
     position: absolute;
     top:309px;
@@ -684,8 +684,22 @@ a#all-actu-home{
     text-decoration: none;
     padding:0 0 0 9px;
 }
-a#all-actu-home:hover{
+#main div#content a#all-agenda-home{
+    display:block;
+    width:119px;
+    height : 24px;
+    background: url(../images/icons/bgAgendaPlus.png) no-repeat 0 0;
+    font-size: 0.6em;
+    color:white;
+    text-decoration: none;
+    padding:0 0 0 9px;
+    margin:8px 0 0 162px;
+}
+#main div#content a#all-actu-home:hover{
     background: url(../images/icons/bgActuPlus.png) no-repeat 0 100%;
+}
+#main div#content a#all-agenda-home:hover{
+    background: url(../images/icons/bgAgendaPlus.png) no-repeat 0 100%;
 }
 
 #block-views-actualites-accueil-block h2{
@@ -719,7 +733,8 @@ a#all-actu-home:hover{
     position : absolute;
     top:47px;
     left:560px;
-    width: 50px;
+    width:200px;
+    overflow: hidden;
 }
 .controleur{
     width:17px;
@@ -728,11 +743,12 @@ a#all-actu-home:hover{
     background: url(../images/icons/bgTabsActu.png) no-repeat 0 0;
     color : grey;
     padding-left:6px;
-    margin-left : 1px;
+    margin:0 5px 0 1px;
 }
 .controleur:hover,.selected_controleur{
     background: url(../images/icons/bgTabsActu.png) no-repeat 0 100%;
     color : white;
+    cursor: pointer;
 }
 .views-field-field-summary-news{
     position : relative;
@@ -848,7 +864,9 @@ a#all-actu-home:hover{
     z-index : 10;
     position : absolute;
 }
-
+.view-id-agenda div.view-content{
+    height : 223px;
+}
 /* Pages classiques **********************************************************/
 h2#page-title{
     color: #000;
@@ -864,7 +882,8 @@ h2#page-title{
 body.section-communaute-de-communes  h2#page-title{
     border-bottom : 3px solid #DD9D17;
 }
-.node-page, .node-commune,.node-liste-elus, .node-fiche-elu{
+.node-page, .node-commune,.node-liste-elus, .node-fiche-elu,
+.node-actualites{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
