@@ -325,6 +325,7 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
    list-style: none;
    padding: 0;
    margin:0;
+   float : left;
 }
 #block-menu-menu-agenda-actualites ul li a{
    color : white;
@@ -338,6 +339,12 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 #block-menu-menu-agenda-actualites ul li a:hover{
    background: #43291B url(../images/icons/bgActuPlus.png) no-repeat 0 100%;
+}
+#block-menu-menu-agenda-actualites ul li.last a{
+   background: #43291B url(../images/icons/bgAgendaPlus.png) no-repeat 0 0;
+}
+#block-menu-menu-agenda-actualites ul li.last a:hover{
+   background: #43291B url(../images/icons/bgAgendaPlus.png) no-repeat 0 100%;
 }
 /* Menus gauche ***************************************************************/
 .region-sidebar-first ul.menu{
@@ -883,7 +890,7 @@ body.section-communaute-de-communes  h2#page-title{
     border-bottom : 3px solid #DD9D17;
 }
 .node-page, .node-commune,.node-liste-elus, .node-fiche-elu,
-.node-actualites{
+.node-actualites,.view-id-agenda{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
