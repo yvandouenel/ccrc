@@ -94,12 +94,14 @@ td.alignRight,th.alignRight{
     padding : 5px 0 5px 15px;
     font-size :0.9em;
 }
-body.section-communaute-de-communes .breadcrumb{
+body.section-communaute-de-communes .breadcrumb,
+body.section-inscription-newsletter .breadcrumb{
     background-color: #DD9D17;
 }
 body.page-agenda .breadcrumb,body.node-type-agenda .breadcrumb{
     background-color: #D80038;
 }
+
 .breadcrumb li a{
    color : white;
 }
@@ -297,6 +299,12 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a:hover{
    background: url(../images/icons/btMarchePublic.png) no-repeat 0 100%;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-717 a{
+   background: url(../images/icons/btNewsletter.png) no-repeat 0 0;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-717 a:hover{
+   background: url(../images/icons/btNewsletter.png) no-repeat 0 100%;
 }
 .over_menu{
     background: url(../images/bgTopInfobulle.png) no-repeat 0 0;
@@ -924,7 +932,8 @@ h2#page-title{
 .section-jeunesse-emploi h2#page-title{
     border-bottom : 3px solid #629A00;
 }
-body.section-communaute-de-communes  h2#page-title{
+body.section-communaute-de-communes  h2#page-title,
+body.section-inscription-newsletter h2#page-title{
     border-bottom : 3px solid #DD9D17;
 }
 body.page-agenda  h2#page-title,
@@ -935,7 +944,7 @@ body.node-type-agenda  h2#page-title{
 
 .node-page, .node-commune,.node-liste-elus, .node-fiche-elu,
 .node-actualites,.section-agenda .view-id-agenda,.node-agenda,
-body.section-offres-emploi #content{
+.node-webform ,body.section-offres-emploi #content{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
@@ -1011,7 +1020,7 @@ div.pratique_emploi{
     border-radius : 8px 8px 8px 8px ;
     margin :-40px 30px 0 20px;
 }
-div.pratique_emploi h4{
+div.pratique_emploi h5{
    margin:0.5em;
 }
 div.pratique_emploi a{
