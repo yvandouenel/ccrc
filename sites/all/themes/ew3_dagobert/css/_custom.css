@@ -1026,3 +1026,34 @@ div.pratique_emploi a{
     padding-top : 20px;
     border-top : 1px dotted #4E9CD0;
 }
+/*formulaire offres d'emploi **************************************************/
+.webform-client-form label{
+    width: 300px;
+    float:left;
+    clear:left;
+}
+.webform-client-form label.option{
+    width:auto;
+    clear:none;
+    margin : 0 10px 0 3px;
+}
+.webform-client-form .form-radio{
+    float:left;
+    margin:5px 0 20px 0;
+}
+.webform-client-form .webform-component-managed_file{
+    clear:both;
+}
+.webform-client-form textarea{
+    width: 640px;
+}
+#webform-component-votre-candidature--si-oui-precisez-lequel{
+    clear:both;
+    margin-top: 20px;
+}
+.h3_depot_job{
+    margin-top : 10px;
+    padding-top : 20px;
+    border-top : 3px solid #4E9CD0;
+}
+/*.webform-client-form .resizable-textarea*/

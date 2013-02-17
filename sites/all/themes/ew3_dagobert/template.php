@@ -124,7 +124,11 @@ function ew3_dagobert_preprocess_html(&$variables, $hook) {
    if ((in_array('front', $variables['classes_array']))){
     drupal_add_js(drupal_get_path('theme', 'ew3_dagobert'). '/js/customdiapoexpert.js', $options);
   }
+  if ((in_array('section-offres-emploi', $variables['classes_array']))){
+    drupal_add_js(drupal_get_path('theme', 'ew3_dagobert'). '/js/linkjobform.js', $options);
+  }
 }
+
 
 /**
  * Override or insert variables into the html templates.
