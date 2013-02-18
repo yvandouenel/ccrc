@@ -101,6 +101,9 @@ body.section-inscription-newsletter .breadcrumb{
 body.page-agenda .breadcrumb,body.node-type-agenda .breadcrumb{
     background-color: #D80038;
 }
+body.page-publications .breadcrumb{
+    background-color: #D80038;
+}
 
 .breadcrumb li a{
    color : white;
@@ -305,6 +308,12 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-717 a:hover{
    background: url(../images/icons/btNewsletter.png) no-repeat 0 100%;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-719 a{
+   background: url(../images/icons/btPublication.png) no-repeat 0 0;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-719 a:hover{
+   background: url(../images/icons/btPublication.png) no-repeat 0 100%;
 }
 .over_menu{
     background: url(../images/bgTopInfobulle.png) no-repeat 0 0;
@@ -920,7 +929,7 @@ form#views-exposed-form-agenda-page-1 div{
     margin : 20px 0 0 0;
     padding : 5px 32px;
 }
-/* Pages classiques **********************************************************/
+/* Titres des pages  **********************************************************/
 h2#page-title{
     color: #000;
     line-height: 12px;
@@ -928,6 +937,7 @@ h2#page-title{
     padding-bottom: 20px;
     font-size: 1.75em;
     padding-top: 5px;
+    font-family: viga, arial;
 }
 .section-jeunesse-emploi h2#page-title{
     border-bottom : 3px solid #629A00;
@@ -941,10 +951,15 @@ body.node-type-agenda  h2#page-title{
     border-bottom : 3px solid #D80038;
     font-family: "Viga",arial;
 }
+body.page-publications h2#page-title{
+     border-bottom : 3px solid #D80038;
+}
+
+/* Fond des contenus centraux *************************************************/
 
 .node-page, .node-commune,.node-liste-elus, .node-fiche-elu,
 .node-actualites,.section-agenda .view-id-agenda,.node-agenda,
-.node-webform ,body.section-offres-emploi #content{
+.node-webform ,body.section-offres-emploi #content, .view-id-publications{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
@@ -1065,4 +1080,69 @@ div.pratique_emploi a{
     padding-top : 20px;
     border-top : 3px solid #4E9CD0;
 }
-/*.webform-client-form .resizable-textarea*/
+
+/* Publications #D80038 *******************************************************/
+#block-views-exp-publications-page h2.block-title{
+    background: url(../images/icons/search_01.png) no-repeat 0 0;
+    width: 216px;
+    height : 72px;
+    text-indent: -2000px;
+}
+#views-exposed-form-publications-page select{
+    font-size: 60%;
+    height: 20px;
+}
+#views-exposed-form-publications-page .views-widget-sort-by,
+#views-exposed-form-publications-page .views-widget-sort-order{
+    display: none;
+}
+.view-id-publications ul{
+    margin:0;
+    padding:0;
+}
+.view-id-publications ul li{
+    list-style: none;
+    margin :0 0 20px 0;
+    padding : 0 10px 0 0;
+    float : left;
+    width : 359px;
+    height : 260px;
+    border-bottom : 1px dotted grey;
+    overflow: hidden;
+}
+.img_publi_list{
+    width : 150px;
+    height : 200px;
+    float : left;
+    overflow: hidden;
+    margin : 0 5px 0 0;
+}
+.views-field-field-publi-thematique{
+    font-size : 0.8em;
+}
+#main h3.title_publi{
+    margin : 0 0 3px 0;
+}
+#main div.view-id-publications p{
+    margin : 5px 0;
+    font-size : 0.7em;
+}
+a.link_publi_calameo, a.link_publi_file{
+    display : block;
+    font-size : 0.75em;
+    background: url(../images/icons/chevron.png) no-repeat 0 50%;
+    padding-left : 15px;
+    clear:both;
+}
+a.link-top{
+    position : relative;
+    left: -80px;
+    width:41px;
+    height : 41px;
+    text-indent: -2000px;
+    background: url(../images/icons/bgHautPage.png) no-repeat 0 0;
+    display : block;
+}
+a.link-top:hover{
+    background: url(../images/icons/bgHautPage.png) no-repeat 0 100%;
+}
