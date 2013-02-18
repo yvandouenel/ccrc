@@ -5,8 +5,25 @@ body.front #over_body{
     padding-bottom :150px;
     background :url(../images/footer1.jpg) repeat-x 50% 100%;
 }
+.sidebar-first .region-sidebar-first {
+    margin-right: -196px;
+    width: 221px;
+}
+.sidebar-first #content {
+    margin-left: 241px;
+    margin-right: -980px;
+    width: 719px;
+}
 #secondary-menu{
     display: none;
+}
+.droite{
+    float:right;
+    margin : 0 0 0 20px;
+}
+.gauche{
+    float:left;
+    margin : 0 20px 0 0;
 }
 .clear{
     clear:both;
@@ -502,6 +519,9 @@ body.front #block-om-maximenu-om-maximenu-1{
     background-color : #F5F5F5;
     /**/
   }
+  .om-maximenu-no-style .om-maximenu-middle-right {
+    padding: 0 0 0 10px;
+}
 .om-maximenu-no-style .om-maximenu-middle {
     background : #F5F5F5 url(../images/fond_big_menu.gif) no-repeat 52% 0;
 }
@@ -513,7 +533,7 @@ body.front #block-om-maximenu-om-maximenu-1{
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-1 .om-maximenu-content{border-color: #4F9CCA; }
 /* Première colonne du megamenu ************************************************/
 #block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block,
-.block-views-id-textes_mega_menus-block_1 {
+.block-views-id-textes_mega_menus-block_1, .block-views-id-textes_mega_menus-block_2{
     width:315px;
     padding : 0;
     margin : 20px 0 0 0;
@@ -532,9 +552,14 @@ body.front #block-om-maximenu-om-maximenu-1{
     font-family: "Viga","Arial", sans-serif;
     font-size : 1.3em;
 }
+#om-menu-menu-principal div.field-content{
+    margin: 0;
+    padding-bottom :0;
+}
 #om-menu-menu-principal p{
-    margin: 1.5em 0 0 0;
-
+    margin: 1em 0 0 0;
+    font-size:0.8em;
+    padding-bottom :0;
 }
 
 /* deuxième colonne du megamenu ************************************************/
@@ -1089,12 +1114,25 @@ div.pratique_emploi a{
     text-indent: -2000px;
 }
 #views-exposed-form-publications-page select{
-    font-size: 60%;
+    font-size: 80%;
     height: 20px;
 }
 #views-exposed-form-publications-page .views-widget-sort-by,
 #views-exposed-form-publications-page .views-widget-sort-order{
     display: none;
+}
+#views-exposed-form-publications-page label{
+     font-size: 0.8em;
+     color: #333333;
+     border-left : 1px solid #8E7965;
+     padding-left : 5px;
+}
+input#edit-submit-publications{
+    background: #8E7965;
+    padding : 8px;
+    border-radius : 8px 8px 8px 8px;
+    color : white;
+    font-size: 0.9em;
 }
 .view-id-publications ul{
     margin:0;
@@ -1105,8 +1143,8 @@ div.pratique_emploi a{
     margin :0 0 20px 0;
     padding : 0 10px 0 0;
     float : left;
-    width : 359px;
-    height : 260px;
+    width : 326px;
+    height : 280px;
     border-bottom : 1px dotted grey;
     overflow: hidden;
 }
@@ -1118,14 +1156,14 @@ div.pratique_emploi a{
     margin : 0 5px 0 0;
 }
 .views-field-field-publi-thematique{
-    font-size : 0.8em;
+    font-size : 0.6em;
 }
 #main h3.title_publi{
     margin : 0 0 3px 0;
 }
 #main div.view-id-publications p{
     margin : 5px 0;
-    font-size : 0.7em;
+    font-size : 0.6em;
 }
 a.link_publi_calameo, a.link_publi_file{
     display : block;
@@ -1145,4 +1183,21 @@ a.link-top{
 }
 a.link-top:hover{
     background: url(../images/icons/bgHautPage.png) no-repeat 0 100%;
+}
+/* Résultats des recherches page-search ***************************************/
+.page-search div#page div#main form{
+    background-color: #FFF;
+    border-radius : 8px 8px 0 0;
+    padding : 24px 12px 24px 30px;
+    border-bottom: 1px dotted #4E9CD0;
+}
+.page-search div#main h2{
+    padding : 10px 0 10px 30px;
+}
+.page-search div#main div#content{
+    background: url(../images/fond_blanc_big.gif) no-repeat 10px 40px;
+    padding-bottom : 20px;
+}
+.page-search p.search-info{
+    display : none;
 }
