@@ -984,7 +984,8 @@ body.page-publications h2#page-title{
 
 .node-page, .node-commune,.node-liste-elus, .node-fiche-elu,
 .node-actualites,.section-agenda .view-id-agenda,.node-agenda,
-.node-webform ,body.section-offres-emploi #content, .view-id-publications{
+.node-webform ,body.section-offres-emploi #content, .view-id-publications,
+.view-id-carte_etablissements{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
@@ -1200,4 +1201,24 @@ a.link-top:hover{
 }
 .page-search p.search-info{
     display : none;
+}
+/* Etablissements Gmap google *************************************************/
+.gmap-popup p{
+    font-size :0.8em;
+    padding : 0;
+    margin :0;
+}
+h3.location-locations-header,
+div.location-locations-wrapper{
+    display : none;
+}
+.ets_coordonnees{
+    float: left;
+    padding : 0 5px 5px 0;
+    margin: 0px 10px 5px 0;
+    border-right : 1px dotted #4E9CD0;
+    border-bottom : 1px dotted #4E9CD0;
+}
+.gmap-popup{
+    height:160px !important;
 }
