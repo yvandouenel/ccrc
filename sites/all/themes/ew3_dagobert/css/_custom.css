@@ -915,6 +915,8 @@ display: none;
     width:262px;
     z-index : 10;
     position : absolute;
+    font-family: verdana, arial,sans-serif;
+    text-decoration : none;
 }
 .view-id-agenda div.view-content{
     height : 223px;
@@ -926,7 +928,7 @@ display: none;
 .views-field-field-agenda-period-1 div.field-content {
     display : inline;
 }
-form#views-exposed-form-agenda-page-1{
+form#views-exposed-form-agenda-page-1, form#views-exposed-form-carte-etablissements-page{
     padding-left : 250px;
     height : 72px;
     background : url(../images/icons/search_01.png) no-repeat 0 0;
@@ -943,10 +945,14 @@ form#views-exposed-form-agenda-page-1 div{
     top : 23px;
     left :417px;
 }
-.page-agenda .view-id-agenda ul{
+.page-agenda .view-id-agenda ul,
+.section-carte-interactive div.gmap-map{
     padding : 20px 0 0 215px;
     margin : 20px 0 0 0;
     border-top : 1px dashed #8E7965;
+}
+.section-carte-interactive div.gmap-map{
+    padding : 20px 0 0 0;
 }
 .page-agenda .view-id-agenda li.views-row{
     list-style: none;
