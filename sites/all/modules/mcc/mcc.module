@@ -1,0 +1,676 @@
+<?php
+
+module_load_include('inc', 'mcc', 'mcc.entity');
+
+/**
+ * Implements hook_permission().
+ */
+function mcc_permission() {
+  return array(
+    'send mailchimp campaign' => array(
+      'title' => t('Send MailChimp campaigns'),
+      'description' => t('Create and send MailChimp campaigns form nodes.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mcc_menu() {
+  $items['admin/config/services/mailchimp/campaigns'] = array(
+    'title' => 'Campaign settings',
+    'description' => 'Manage sitewide default MailChimp Campaigns settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mcc_admin_form'),
+    'access arguments' => array('administer mailchimp'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'mcc.admin.inc',
+    'weight' => 10
+  );
+  $items['node/%node/mailchimp-campaigns'] = array(
+    'title' => 'MailChimp campaigns',
+    'page callback' => 'mcc_node_campaigns_page',
+    'page arguments' => array(1),
+    'access callback' => 'mcc_node_campaigns_access',
+    'access arguments' => array(1, 'send mailchimp campaign'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['node/%node/mailchimp-campaigns/create'] = array(
+    'title' => 'Create new campaign',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mcc_create_form', 1),
+    'access callback' => 'mcc_node_campaigns_access',
+    'access arguments' => array(1, 'send mailchimp campaign'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+  $items['mailchimp-campaign/%mcc/update/%'] = array(
+    'title' => 'Update',
+    'page callback' => 'mcc_menu_operations',
+    'page arguments' => array(1, 2),
+    'access callback' => 'mcc_menu_operations_access',
+    'access arguments' => array(3, 'send mailchimp campaign'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['mailchimp-campaign/%mcc/send/%'] = array(
+    'title' => 'Send',
+    'page callback' => 'mcc_menu_operations',
+    'page arguments' => array(1, 2),
+    'access callback' => 'mcc_menu_operations_access',
+    'access arguments' => array(3, 'send mailchimp campaign'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['mailchimp-campaign/%mcc/delete/%'] = array(
+    'title' => 'Delete',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mcc_delete_form', 1),
+    'access callback' => 'mcc_menu_operations_access',
+    'access arguments' => array(3, 'administer mailchimp'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Access callback for node campaigns.
+ */
+function mcc_node_campaigns_access($node, $permission) {
+  if (user_access($permission)) {
+    $settings = variable_get('mcc_node_type_settings_' . $node->type, FALSE);
+    if ($settings && $settings['enabled']) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Access callback for menu operations.
+ */
+function mcc_menu_operations_access($token, $permission) {
+  if (drupal_valid_token($token, 'mcc') && user_access($permission)) {
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Call update or send operations, then returns to the destination.
+ */
+function mcc_menu_operations($campaign, $op) {
+  switch ($op) {
+    case 'update':
+        mcc_update_campaign($campaign->cid);
+      break;
+    case 'send':
+        mcc_send($campaign->cid);
+      break;
+  }
+
+  $destination = drupal_get_destination();
+  // If no given destination, drupal_get_destination() returns with $_GET['q'].
+  if ($destination['destination'] != $_GET['q']) {
+    $destination = $destination['destination'];
+  }
+  // Define new destination to avoid infinite loop.
+  else {
+    $destination = 'node/' . $campaign->nid . '/mailchimp-campaigns';
+  }
+
+  drupal_goto($destination);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mcc_theme($existing, $type, $theme, $path) {
+  return array(
+    'mcc_node_campaigns_list' => array(
+      'variables' => array('node_campaigns' => array()),
+    ),
+    'mcc_mclinks' => array(
+      'variables' => array('data' => NULL),
+    ),
+    'mcc_actions' => array(
+      'variables' => array('campaign' => NULL),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * MailChimp Campaign module settings on node type edit form.
+ */
+function mcc_form_node_type_form_alter(&$form, $form_state) {
+  module_load_include('inc', 'mcc', 'mcc.settings');
+  $defaults = variable_get('mcc_node_type_settings_' . $form['#node_type']->type, FALSE);
+
+  $form['mcc'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('MailChimp campaign'),
+    '#group' => 'additional_settings',
+    '#tree' => TRUE,
+  );
+  $form['mcc']['enabled'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable MailChimp campaigns'),
+    '#default_value' => $defaults ? $defaults['enabled'] : FALSE,
+  );
+  mcc_settings_form($form, $defaults);
+  $form['mcc']['list_id']['#required'] = FALSE;
+  // Hide options if MailChimp Campaigns is not enabled for node type.
+  $states = array(
+    '#states' => array(
+      'visible' => array(
+        ':input[name="mcc[enabled]"]' => array(
+          'checked' => TRUE,
+        ),
+      ),
+    ),
+  );
+  $form['mcc']['list_id'] += $states;
+  $form['mcc']['from_name'] += $states;
+  $form['mcc']['from_email'] += $states;
+  $form['mcc']['template_id'] += $states;
+  $form['mcc']['title_section'] += $states;
+  $form['mcc']['body_section'] += $states;
+
+  $form['#validate'][] = 'mcc_form_node_type_form_validate';
+  $form['#submit'][] = 'mcc_form_node_type_form_submit';
+}
+
+/**
+ * Validate MailChimp settings on node type edit form.
+ */
+function mcc_form_node_type_form_validate($form, &$form_state) {
+  module_load_include('inc', 'mcc', 'mcc.settings');
+  $form_state['defaults'] = variable_get('mcc', FALSE);
+
+  $values = $form_state['values']['mcc'];
+  if ($values['enabled'] && !$values['list_id']) {
+    form_set_error('mcc][list_id', t('List field is required, if MailChimp campaigns are enabled.'));
+  }
+  mcc_settings_form_validate($form, $form_state);
+}
+
+/**
+ * Save node type settings.
+ */
+function mcc_form_node_type_form_submit($form, &$form_state) {
+  variable_set('mcc_node_type_settings_' . $form_state['values']['type'], $form_state['values']['mcc']);
+  variable_del('mcc_' . $form_state['values']['type']);
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function mcc_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['mcc'] = array(
+    'label' => t('MailChimp campaign'),
+    'custom settings' => FALSE,
+  );
+}
+
+/**
+ * Returns campaigns list. (Associative array for drupal_render()).
+ */
+function mcc_node_campaigns_page($node) {
+  $node_campaigns = mcc_load_by_nid($node->nid);
+
+  if ($node_campaigns) {
+    $content['title'] = array(
+      '#markup' => t('MailChimp campaigns for %title', array('%title' => $node->title)),
+      '#prefix' => '<h2>',
+      '#suffix' => '</h3>',
+    );
+
+    $content['campaign_list'] = array(
+      '#theme' => 'mcc_node_campaigns_list',
+      '#node_campaigns' => $node_campaigns,
+    );
+  }
+  else {
+    $content = '';
+  }
+
+  return $content;
+}
+
+/**
+ * Returns a list with the campaigns of a node.
+ */
+function theme_mcc_node_campaigns_list($variables) {
+  $node_campaigns = $variables['node_campaigns'];
+  $header = array(t('ID'), t('Title'), t('List'), t('Status'), t('MC links'), t('Last updated'), t('Actions'));
+
+  foreach ($node_campaigns as $cid => $campaign) {
+    $row = array();
+    $row[] = $cid; // ID
+    if ($campaign->data) {
+      $row[] = check_plain($campaign->data['title']); // Title
+      $row[] = _mcc_list_name($campaign->data['list_id']); // List
+      $row[] = check_plain($campaign->data['status']); // Status
+      $row[] = theme('mcc_mclinks', array('data' => $campaign->data)); // MC links
+    }
+    else {
+      $row[] = array(
+        'data' => '<em>' . t('No available information, please update.') . '</em>',
+        'colspan' => '4',
+      );
+    }
+    $row[] = format_date($campaign->update_time); // Last updated
+    $row[] = theme('mcc_actions', array('campaign' => $campaign)); // Actions
+
+    $rows[] = $row;
+  }
+
+  return theme('table', array('header' => $header, 'rows' => $rows));
+}
+
+/**
+ * Returns MC links as item list.
+ */
+function theme_mcc_mclinks($variables) {
+  $data = $variables['data'];
+
+  $items = array();
+  $items[] = _mcc_mailchimp_admin_link(t('Edit'), 'campaigns/show', $data['web_id']);
+  $items[] = l('Web archive page', $data['archive_url'], array('attributes' => array('target' => '_blank')));
+  if (in_array($data['status'], array('sending', 'sent'))) {
+    $items[] = _mcc_mailchimp_admin_link(t('Reports'), 'reports/summary', $data['web_id']);
+  }
+
+  return theme('item_list', array('items' => $items));
+}
+
+/**
+ * Returns action (update/send) links.
+ */
+function theme_mcc_actions($variables) {
+  $data = $variables['campaign']->data;
+  $cid = $variables['campaign']->cid;
+  $nid = $variables['campaign']->nid;
+  $destination = array('query' => array('destination' => 'node/' . $nid . '/mailchimp-campaigns'));
+
+  $items = array();
+  if (user_access('administer mailchimp')) {
+    $items[] = l(t('Delete'), 'mailchimp-campaign/' . $cid . '/delete/' . drupal_get_token('mcc'), $destination);
+  }
+  $items[] = l(t('Update'), 'mailchimp-campaign/' . $cid . '/update/' . drupal_get_token('mcc', $destination));
+  if ($data['status'] == 'save') {
+    $items[] = l(t('Send'), 'mailchimp-campaign/' . $cid . '/send/' . drupal_get_token('mcc', $destination));
+  }
+
+  return theme('item_list', array('items' => $items));
+}
+
+/**
+ * Form for create MailChimp campaign, from node content.
+ */
+function mcc_create_form($form, &$form_state) {
+  module_load_include('inc', 'mcc', 'mcc.settings');
+  $node = $form_state['build_info']['args'][0];
+  $defaults = variable_get('mcc_node_type_settings_' . $node->type, FALSE);
+
+  $form = array();
+  $form['mcc_preview'] = array(
+   '#type' => 'fieldset',
+   '#title' => t('Campaign content preview'),
+   '#collapsible' => TRUE,
+   '#collapsed' => TRUE,
+  );
+  $form['mcc_preview']['preview'] = array(
+    '#type' => 'item',
+    '#title' => check_plain($node->title),
+    '#markup' => _mcc_body($node),
+  );
+  $form['mcc'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Create new MailChimp campaign'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#tree' => TRUE,
+  );
+  $form['mcc']['subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Mail subject'),
+    '#default_value' =>  $node->title . ' - ' . variable_get('site_name', FALSE),
+    '#required' => TRUE,
+  );
+  $form['mcc']['campaign_title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Campaign title'),
+    '#default_value' => $node->title,
+    '#required' => TRUE,
+  );
+  if (user_access('administer mailchimp')) {
+    mcc_settings_form($form, $defaults);
+  }
+  $form['mcc']['create'] = array(
+    '#type' => 'submit',
+    '#value' => t('Create new campaign from node'),
+  );
+
+  return $form;
+}
+
+/**
+ * Validate MailChimp campaign creation form.
+ */
+function mcc_create_form_validate($form, &$form_state) {
+  module_load_include('inc', 'mcc', 'mcc.settings');
+  $node = $form_state['build_info']['args'][0];
+  $form_state['defaults'] = variable_get('mcc_node_type_settings_' . $node->type, FALSE);
+
+  mcc_settings_form_validate($form, $form_state);
+}
+
+/**
+ * Create MailChimp campaign on form submission.
+ */
+function mcc_create_form_submit($form, $form_state) {
+  if (isset($form_state['build_info']['args'][0]->nid)) {
+    $node = $form_state['build_info']['args'][0];
+    mcc_create($node, $form_state['values']['mcc']);
+  }
+}
+
+/**
+ * Form for delete a campaign form the database and/or MailChimp.
+ */
+function mcc_delete_form($form, &$form_state) {
+  $campaign = $form_state['build_info']['args'][0];
+  $admin_link = _mcc_mailchimp_admin_link(t('Campaign admin page'), 'campaigns/show', $campaign->data['web_id']);
+
+  $form['info'] = array(
+    '#markup' => t('Campaign ID: %cid', array('%cid' => $campaign->cid)),
+    '#suffix' => '<br />',
+  );
+  $form['admin_link'] = array('#markup' => $admin_link);
+  $form['delete_from'] = array(
+    '#type' => 'radios',
+    '#title' => t('Delete campaign'),
+    '#options' => array(
+      'db' => t('Only from site database'),
+      'mc' => t('From site database and from MailChimp'),
+    ),
+    '#default_value' => 'db',
+  );
+
+  return confirm_form($form, t('Are you sure you want to delete this campaign: %id', array('%id' => $campaign->data['title'])), 'node/' . $campaign->nid . '/mailchimp-campaigns');
+}
+
+/**
+ * Delete a campaign from the database on form submit.
+ */
+function mcc_delete_form_submit($form, &$form_state) {
+  $campaign = $form_state['build_info']['args'][0];
+  if ($form_state['values']['delete_from'] == 'mc') {
+    mcc_delete_campaign($campaign->cid);
+  }
+  else {
+    mcc_delete($campaign->cid);
+  }
+}
+
+/**
+ * Create MailChimp campaign from a node.
+ */
+function mcc_create($node, $settings) {
+  $mcapi = mailchimp_get_api_object();
+  $options = array(
+    'list_id' => $settings['list_id'],
+    'subject' => $settings['subject'],
+    'from_email' => $settings['from_email'],
+    'from_name' => $settings['from_name'],
+    'title' => $settings['campaign_title'],
+    'template_id' => $settings['template_id'],
+    'generate_text' => TRUE,
+    'tracking' => array(
+      'opens' => TRUE,
+      'html_clicks' => TRUE,
+      'text_clicks' => TRUE,
+    ),
+  );
+  $body = _mcc_body($node);
+  $title = l($node->title, 'node/' . $node->nid, array('absolute' => TRUE));
+  $content = array();
+  if ($settings['title_section'] == $settings['body_section']) {
+    $content['html_' . $settings['body_section']] = '<h1>' . $title . '</h1>' . $body;
+  }
+  else {
+    $content['html_' . $settings['title_section']] = $title;
+    $content['html_' . $settings['body_section']] = $body;
+  }
+
+  // Create campaign on MailChimp. (Only regular campaigns are supported yet.)
+  $cid = $mcapi->campaignCreate('regular', $options, $content);
+
+  if ($mcapi->errorCode) {
+    // Display and log error, if any.
+    $message = 'MailChimp error. The campaign was not created.';
+    _mcc_mcapi_error_message($mcapi, $message);
+  }
+  else {
+    // Write campaign details to the database.
+    $campaign = new stdClass;
+    $campaign->cid = $cid;
+    $campaign->nid = $node->nid;
+    $campaign->vid = $node->vid;
+    $campaign->is_new = TRUE;
+    $campaign->original = TRUE;
+    mcc_save($campaign);
+
+    // Log action, and notify the user.
+    $message = 'Campaign was created! (ID: %cid)';
+    $variables = array('%cid' => $cid);
+    drupal_set_message(t($message, $variables));
+    watchdog('mcc', $message, $variables);
+
+    // Request all campaign datas from MailChimp.
+    mcc_update_campaign($cid, TRUE);
+  }
+}
+
+/**
+ * Update campaign datas in the database.
+ */
+function mcc_update_campaign($cid, $silent = FALSE) {
+  $mcapi = mailchimp_get_api_object();
+  $campaign = new stdClass;
+  $campaign->cid = $cid;
+  $campaign->update_time = REQUEST_TIME;
+
+  // Request all datas from the campaign.
+  $data = $mcapi->campaigns(array('campaign_id' => $cid));
+
+  if ($mcapi->errorCode) {
+    // Display and log error if any.
+    $message = 'Some error has occured while get datas from MailChimp.';
+    _mcc_mcapi_error_message($mcapi, $message);
+
+    return FALSE;
+  }
+  else {
+    $campaign->data = $data['data'][0];
+
+    // Update campaign.
+    mcc_save($campaign);
+
+    // Log action, and notify the user.
+    $message = 'Campaign datas was updated.';
+    if (!$silent) {
+      drupal_set_message(t($message));
+    }
+    watchdog('mcc', $message);
+
+    return TRUE;
+  }
+}
+
+/**
+ * Send MailChimp campaign.
+ */
+function mcc_send($cid) {
+  $mcapi = mailchimp_get_api_object();
+
+  // Send campaign.
+  $sent = $mcapi->campaignSendNow($cid);
+
+  if ($mcapi->errorCode) {
+    // Display and log error, if any.
+    $message = 'MailChimp error. The campaign was not sent.';
+    _mcc_mcapi_error_message($mcapi, $message);
+  }
+  else {
+    // Update campaign details in the database.
+    mcc_update_campaign($cid);
+
+    // Log action, and notify the user.
+    $message = 'MailChimp campaign was sent.';
+    drupal_set_message(t($message));
+    watchdog('mcc', $message);
+  }
+}
+
+/**
+ * Delete a campaign from MailChimp.
+ */
+function mcc_delete_campaign($cid) {
+  $mcapi = mailchimp_get_api_object();
+
+  // Delete campaign from MailChimp
+  $delete = $mcapi->campaignDelete($cid);
+
+  if ($mcapi->errorCode) {
+    // Display and log error, if any.
+    $message = 'MailChimp error. The campaign was not deleted.';
+    _mcc_mcapi_error_message($mcapi, $message);
+  }
+  else {
+    // Delete campaign from the database
+    mcc_delete($cid);
+
+    // Log action, and notify the user.
+    $message = 'MailChimp campaign was deleted from MailChimp, campaign ID: %cid.';
+    $variables = array('%cid' => $cid);
+    drupal_set_message(t($message, $variables));
+    watchdog('mcc', $message);
+  }
+}
+
+/**
+ * Get url or link to MaliChimp admin pages.
+ */
+function _mcc_mailchimp_admin_link($text = '', $path = '', $web_id = '', $return_url = FALSE) {
+  $key = variable_get('mailchimp_api_key', FALSE);
+  if ($key) {
+    $dc = explode('-', $key, 2);
+    $url = 'https://' . $dc[1] . '.admin.mailchimp.com/';
+
+    if ($path) {
+      $url .= $path;
+    }
+    if ($web_id) {
+      $url .= '?id=' . $web_id;
+    }
+
+    if ($return_url) {
+      return $url;
+    }
+    elseif ($text) {
+      return l($text, $url, array('attributes' => array('target' => '_blank')));
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Set and log error messages after MailChimp API errors.
+ */
+function _mcc_mcapi_error_message($mcapi, $message, $variables = array()) {
+  $mcapiErrorMessage = 'MailChimp error code: %errorCode, MailChimp error message: %errorMessage.';
+  $mcapiErrorVariables = array('%errorCode' => $mcapi->errorCode, '%errorMessage' => $mcapi->errorMessage);
+
+  $human = t($message, $variables) . ' ' . t($mcapiErrorMessage, $mcapiErrorVariables);
+  drupal_set_message($human, 'error');
+
+  $watchdog = $message . ' ' . $mcapiErrorMessage;
+  $variables = $variables + $mcapiErrorVariables;
+  watchdog('mcc', $watchdog, $variables, WATCHDOG_ERROR);
+}
+
+/**
+ * Returns an array of mailing lists, for option values.
+ * TODO: return with the list registered by the mailchimp_lists module
+ */
+function _mcc_lists_options() {
+  $lists = mailchimp_get_lists();
+
+  $options = array('' => t('-- Select --'));
+  foreach ($lists as $list) {
+    $options[$list['id']] = $list['name'];
+  }
+
+  return $options;
+}
+
+/**
+ * Return a MailChimp mailing list name.
+ */
+function _mcc_list_name($list_id) {
+  $lists = mailchimp_get_lists();
+
+  return $lists[$list_id]['name'];
+}
+
+/**
+ * Change the relative URLs to absolute ones in the message.
+ */
+function _mcc_convert_url($text) {
+  global $base_url;
+  $matches = array();
+  preg_match_all('/<(a|img).*?(href|src)="(.*?)"/', $text, $matches);
+  foreach ($matches[3] as $key => $url) {
+    if ($url[0] == '/') {
+      $new_url = $base_url . $url;
+      $new_match = str_replace($url, $new_url, $matches[0][$key]);
+      $text = str_replace($matches[0][$key], $new_match, $text);
+    }
+  }
+
+  return $text;
+}
+
+/**
+ * Returns campaign content of a node.
+ */
+function _mcc_body($node) {
+  $render = node_view($node, 'mcc');
+  $content = drupal_render($render);
+  return _mcc_convert_url($content);
+}
+
+/**
+ * Node preprocess for campaigns.
+ */
+function mcc_preprocess_node(&$variables) {
+  if ($variables['view_mode'] == 'mcc') {
+    $variables['theme_hook_suggestions'][] = 'node__mcc';
+  }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function mcc_theme_registry_alter(&$theme_registry) {
+  if (!isset($theme_registry['node__mcc'])) {
+    $theme_registry['node__mcc']['template'] = drupal_get_path('module', 'mcc') . '/node--mcc';
+    $theme_registry['node__mcc']['type'] = 'module';
+    $theme_registry['node__mcc']['theme path'] = drupal_get_path('module', 'mcc');
+  }
+}
