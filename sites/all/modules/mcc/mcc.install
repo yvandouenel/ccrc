@@ -1,0 +1,61 @@
+<?php
+/**
+ * @file
+ * Install hooks form mcc module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function mcc_schema() {
+  $schema['mcc_node_campaigns'] = array(
+    'description' => 'MailChimp campaigns, created from nodes.',
+    'fields' => array(
+      'nid' => array(
+        'description' => 'Node ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'vid' => array(
+        'description' => 'Node version ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'cid' => array(
+        'description' => 'MailChimp campaign ID.',
+        'type' => 'varchar', 'length' => 16,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'data' => array(
+        'description' => 'MailChimp campaign datas.',
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => FALSE,
+        'serialize' => TRUE,
+      ),
+      'update_time' => array(
+        'description' => 'Unix timestamp, when the campaign datas where last updated from MailChimp servers.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('cid'),
+    'indexes' => array(
+      'node_campaigns' => array('nid', 'vid'),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Add index for nid/vid to 'mcc_node_campaigns' table.
+ */
+function mcc_update_7200() {
+  db_add_index('mcc_node_campaigns', 'node_campaigns', array('nid', 'vid'));
+}
