@@ -5,7 +5,7 @@
 function seven_scs_node_output($node) {
    //TODO Fix a teaser of this node
   $output = '';
-  $output = '<div id="node_' . $node['nid'] . '"><a name="'.$node['nid'].'" id="'.$node['nid'].'"></a>';
+  $output = '<div id="node_' . $node['nid'] . '"><a name="node_'.$node['nid'].'" id="node_'.$node['nid'].'"></a>';
   $output .= '<h2><a href="node/'.$node['nid'].'">' . $node['title'] . '</a></h2>';
   if (isset($node['field_image_news'])) {
       //$output .= '<h1>Il y a une image !!!</h1>';
