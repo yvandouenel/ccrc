@@ -148,6 +148,9 @@ div#block-menu-menu-menus-bas-gauche ul li{
 div#block-menu-menu-menus-bas-gauche ul li.first{
    border-right : 1px dashed #40281E;
 }
+div#block-menu-menu-menus-bas-gauche ul li.last{
+   border-left : 1px dashed #40281E;
+}
 div#block-menu-menu-menus-bas-gauche ul li.first:hover{
    border-right : 0;
 }
@@ -287,8 +290,8 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 /* Menus hauts ****************************************************************/
 #block-menu-block-1{
-    margin :10px 0 0 454px;
-    width: 230px;
+    margin :10px 0 0 407px;
+    width: 277px;
 }
 .menu-name-menu-menu-commodit-haut ul{
     list-style: none;
@@ -336,6 +339,12 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-719 a:hover{
    background: url(../images/icons/btPublication.png) no-repeat 0 100%;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-884 a{
+   background: url(../images/icons/btCarte.png) no-repeat 0 0;
+}
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-884 a:hover{
+   background: url(../images/icons/btCarte.png) no-repeat 0 100%;
 }
 .over_menu{
     background: url(../images/bgTopInfobulle.png) no-repeat 0 0;
@@ -442,7 +451,7 @@ body.section-developpement-economique .region-sidebar-first ul.menu li a:hover{
 #block-search-form{
     position : absolute;
     top: 35px;
-    left : 283px;
+    left : 236px;
     width: 186px;
     background: url(../images/icons/bgSearch.gif) no-repeat 0 0;
     height: 24px;
