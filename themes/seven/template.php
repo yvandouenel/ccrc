@@ -9,12 +9,13 @@ function seven_scs_node_output($node) {
   $output .= '<h2><a href="node/'.$node['nid'].'">' . $node['title'] . '</a></h2>';
   if (isset($node['field_image_news'])) {
       //$output .= '<h1>Il y a une image !!!</h1>';
-      $img_path= image_style_url("actu_home", $node->field_image_news['und'][0]['uri']);
-      $img_name = $node['field_image_news']['und'][0]['filename'];
+      $img_path= image_style_url("actu_home", $node['field_image_news']['und'][0]['uri']);
       //kprint_r($node);
-      $output .= '<a href="node/'.$node['nid'].'"><img src="'.$img_path.'/'.$img_name.'" alt="en savoir plus sur '.$node['title'].'" style="float: left; margin: 0 10px 0 0;" /></a>';
+      $output .= '<div class="div_img_nl"><a href="node/'.$node['nid'].'"><img src="'.$img_path.'" alt="en savoir plus sur '.$node['title'].'" style="float: left; margin: 0 10px 0 0;" /></a></div>';
   }
-  $output .= '<p>' . $node['body'][LANGUAGE_NONE][0]['value'] . '</p>';
+  if (isset($node['body'])) {
+    $output .= $node['body'][LANGUAGE_NONE][0]['value'];
+  }
   //$output .= '<p>' . l(t('Read more'), 'node/' . $node['nid']) . '</p>';
   $output .= '</div>';
 

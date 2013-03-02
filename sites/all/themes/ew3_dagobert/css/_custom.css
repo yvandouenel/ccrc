@@ -307,7 +307,9 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     text-indent: -5000px;
     width: 47px;
 }
-
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-878 a{
+   background: url(../images/icons/btContact.png) no-repeat 0 0;
+}
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-396 a{
    background: url(../images/icons/btEmploi.png) no-repeat 0 0;
 }
@@ -991,10 +993,16 @@ body.page-publications h2#page-title{
 .node-page, .node-commune,.node-liste-elus, .node-fiche-elu,
 .node-actualites,.section-agenda .view-id-agenda,.node-agenda,
 .node-webform ,body.section-offres-emploi #content, .view-id-publications,
-.view-id-carte_etablissements{
+.node-simplenews,.block-mailchimp-lists,
+.view-id-carte_etablissements, body.page-node-mailchimp-campaigns #content{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
+}
+body.page-node-mailchimp-campaigns #content ul,
+body.page-node-mailchimp-campaigns #content div,
+body.page-node-mailchimp-campaigns #content table{
+    background-color: white;
 }
 /* Pages élus *****************************************************************/
 li.liste-elus{
@@ -1227,4 +1235,22 @@ div.location-locations-wrapper{
 }
 .gmap-popup{
     height:160px !important;
+}
+
+/*Newsletter ******************************************************************/
+.node-simplenews h2 {
+    font-size: 1.5em;
+    line-height: 1em;
+    margin-bottom: 0.4em;
+    margin-top: 0;
+}
+.node-simplenews .field-name-field-simplenews-term{
+    display : none;
+}
+.div_img_nl img{
+    margin-top : 20px !important;
+    border-radius : 8px 8px 8px 8px;
+}
+.block-mailchimp-lists .description{
+    display: none;
 }
