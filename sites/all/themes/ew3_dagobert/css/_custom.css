@@ -25,6 +25,9 @@ body.front #over_body{
     float:left;
     margin : 0 20px 0 0;
 }
+.savoir_plus{
+
+}
 .clear{
     clear:both;
 }
@@ -322,7 +325,7 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a:hover{
    background: url(../images/icons/btMarchePublic.png) no-repeat 0 100%;
 }
-.menu-name-menu-menu-commodit-haut ul li.menu-mlid-717 a{
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-879 a{
    background: url(../images/icons/btNewsletter.png) no-repeat 0 0;
 }
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-717 a:hover{
@@ -1253,4 +1256,21 @@ div.location-locations-wrapper{
 }
 .block-mailchimp-lists .description{
     display: none;
+}
+body.section-newsletters div#content{
+    background: url(../images/fond_liste_nl.gif) no-repeat 10px 100%;
+    padding-bottom : 40px;
+}
+body.section-newsletters div#content h3{
+     padding-left : 11px;
+}
+body.section-newsletters h3{
+    border-left: 3px solid #D80038;
+    font-family:Viga,Arial;
+    padding-left : 10px;
+    clear:both;
+    margin-left:10px;
+}
+body.section-newsletters #content img{
+    margin-bottom: 15px;
 }
