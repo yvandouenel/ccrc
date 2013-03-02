@@ -13,10 +13,16 @@ function seven_scs_node_output($node) {
       //kprint_r($node);
       $output .= '<div class="div_img_nl"><a href="node/'.$node['nid'].'"><img src="'.$img_path.'" alt="en savoir plus sur '.$node['title'].'" style="float: left; margin: 0 10px 0 0;" /></a></div>';
   }
+  if (isset($node['field_agenda_image']) && $node['field_agenda_image']['und'][0]['filename']) {
+      //$output .= '<h1>Il y a une image !!!</h1>';
+      $img_path= image_style_url("actu_home", $node['field_agenda_image']['und'][0]['uri']);
+      //kprint_r($node);
+      $output .= '<div class="div_img_nl"><a href="node/'.$node['nid'].'"><img src="'.$img_path.'" alt="en savoir plus sur '.$node['title'].'" style="float: left; margin: 0 10px 0 0;" /></a></div>';
+  }
   if (isset($node['body'])) {
     $output .= $node['body'][LANGUAGE_NONE][0]['value'];
   }
-  //$output .= '<p>' . l(t('Read more'), 'node/' . $node['nid']) . '</p>';
+  $output .= '<p class="p_know_more">' . l("En savoir plus", 'node/' . $node['nid']) . '</p>';
   $output .= '</div>';
 
   return $output;
