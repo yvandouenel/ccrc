@@ -95,7 +95,7 @@ body.section-communaute-de-communes table caption {
 
 body.section-communaute-de-communes td,
 body.section-communaute-de-communes th{
-    border: 1px solid #333333;
+    border: 0px solid #333333;
     padding: 3px;
     vertical-align: top;
     font-size: 0.9em;
@@ -118,7 +118,8 @@ body.section-communaute-de-communes .breadcrumb,
 body.section-inscription-newsletter .breadcrumb{
     background-color: #DD9D17;
 }
-body.page-agenda .breadcrumb,body.node-type-agenda .breadcrumb{
+body.page-agenda .breadcrumb,body.node-type-agenda .breadcrumb,
+body.page-newsletters .breadcrumb{
     background-color: #D80038;
 }
 body.page-publications .breadcrumb{
@@ -943,27 +944,27 @@ display: none;
     display : inline;
 }
 form#views-exposed-form-agenda-page-1, form#views-exposed-form-carte-etablissements-page{
-    padding-left : 250px;
-    height : 72px;
-    background : url(../images/icons/search_01.png) no-repeat 0 0;
-    position : relative;
+    padding-top : 10px;
+    background : url(../images/icons/search_01.png) no-repeat 0 20px;
+}
+form#views-exposed-form-carte-etablissements-page .views-exposed-form{
+    padding : 28px 0 0 227px;
 }
 form#views-exposed-form-agenda-page-1 .form-item-field-agenda-thematique-tid{
-    margin-top : 17px;
+    margin-top : 0px;
 }
 form#views-exposed-form-agenda-page-1 div{
-   float : left;
+   /*float : left;*/
 }
 #edit-submit-agenda{
-    position : absolute;
+   /* position : absolute;
     top : 23px;
-    left :417px;
+    left :417px;*/
 }
 .page-agenda .view-id-agenda ul,
 .section-carte-interactive div.gmap-map{
-    padding : 20px 0 0 215px;
-    margin : 20px 0 0 0;
-    border-top : 1px dashed #8E7965;
+    padding : 10px 0 0 10px;
+    margin : 10px 0 0 0;
 }
 .section-carte-interactive div.gmap-map{
     padding : 20px 0 0 0;
@@ -973,6 +974,50 @@ form#views-exposed-form-agenda-page-1 div{
     border-left : 3px solid #D80038;
     margin : 20px 0 0 0;
     padding : 5px 32px;
+}
+.page-agenda .description{
+    display : none;
+}
+#edit-field-agenda-thematique-tid,
+#edit-field-agenda-period-value2-wrapper{
+    width : 192px;
+}
+.views-widget-filter-field_agenda_period_value label{
+    float : left;
+    width : 75px;
+}
+.views-widget-filter-field_agenda_period_value2 label{
+    float : left;
+    width : 75px;
+}
+#edit-field-agenda-period-value-value{
+    width : 100px;
+}
+#edit-field-agenda-period-value2-wrapper{
+    width : 205px;
+    clear : both;
+}
+#edit-field-agenda-period-value-value .date-padding,
+#form-item-field-agenda-period-value2-value .date-padding{
+    width : 100px;
+}
+#edit-field-agenda-period-value-value-datepicker-popup-1,
+#edit-field-agenda-period-value2-value-datepicker-popup-1{
+    width : 111px;
+}
+form#views-exposed-form-agenda-page-1 div {
+    float: left;
+}
+form#views-exposed-form-agenda-page-1 div .views-submit-button{
+    padding-top : 0;
+}
+form#views-exposed-form-agenda-page-1 div .views-submit-button #edit-submit-agenda{
+    background:  url(../images/icons/bg_button_search.png) no-repeat 0 0;
+    color : white;
+    border : 0;
+    width :216px;
+    height:32px;
+    text-align: center;
 }
 /* Titres des pages  **********************************************************/
 h2#page-title{
@@ -992,7 +1037,8 @@ body.section-inscription-newsletter h2#page-title{
     border-bottom : 3px solid #DD9D17;
 }
 body.page-agenda  h2#page-title,
-body.node-type-agenda  h2#page-title{
+body.node-type-agenda  h2#page-title,
+body.page-newsletters h2#page-title{
     border-bottom : 3px solid #D80038;
     font-family: "Viga",arial;
 }
@@ -1065,7 +1111,7 @@ div.view-elus{
     margin-top: 6px;
 }
 .table_fiche_elu td.td_fiche_elu{
-    width:100%;
+    width:84%;
     padding-left:30px;
 }
 .table_fiche_elu td.td_fiche_elu p{
@@ -1074,6 +1120,9 @@ div.view-elus{
 }
 .separator-label-elu{
     margin-top: 20px;
+}
+td.td_field_elu_photo{
+    width:16%;
 }
 /* Offres d'emplois ***********************************************************/
 div.view-offre-emplois div.field-content{
@@ -1155,11 +1204,12 @@ div.pratique_emploi a{
      padding-left : 5px;
 }
 input#edit-submit-publications{
-    background: #8E7965;
-    padding : 8px;
-    border-radius : 8px 8px 8px 8px;
+    background:  url(../images/icons/bg_button_search.png) no-repeat 0 0;
     color : white;
-    font-size: 0.9em;
+    border : 0;
+    width :216px;
+    height:32px;
+    text-align: center;
 }
 .view-id-publications ul{
     margin:0;

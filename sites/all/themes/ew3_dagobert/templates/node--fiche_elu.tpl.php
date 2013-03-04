@@ -107,7 +107,7 @@
   <?php endif; ?>
  <table width="100%" border="0" summary="" class="table_fiche_elu">
      <tr>
-         <td>
+         <td class="td_field_elu_photo">
   <?php print render($content['field_elu_photo']); ?>
          </td>
          <td class="td_fiche_elu">
