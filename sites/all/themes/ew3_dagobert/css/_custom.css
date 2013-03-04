@@ -943,7 +943,7 @@ display: none;
 .views-field-field-agenda-period-1 div.field-content {
     display : inline;
 }
-form#views-exposed-form-agenda-page-1, form#views-exposed-form-carte-etablissements-page{
+form#views-exposed-form-carte-etablissements-page{
     padding-top : 10px;
     background : url(../images/icons/search_01.png) no-repeat 0 20px;
 }
@@ -1019,6 +1019,19 @@ form#views-exposed-form-agenda-page-1 div .views-submit-button #edit-submit-agen
     height:32px;
     text-align: center;
 }
+#block-views-exp-agenda-page-1 h2.block-title{
+    background: url(../images/icons/search_01.png) no-repeat 0 0;
+    width: 216px;
+    height : 72px;
+    text-indent: -2000px;
+}
+#views-exposed-form-agenda-page-1 div.views-widget-filter-field_agenda_thematique_tid label {
+    border-left: 1px solid #8E7965;
+    color: #333333;
+    font-size: 0.8em;
+    padding-left: 5px;
+}
+
 /* Titres des pages  **********************************************************/
 h2#page-title{
     color: #000;
