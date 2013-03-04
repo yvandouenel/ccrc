@@ -114,10 +114,9 @@
         <ul>
             <li><a href="aide">Aide à la navigation et accessibilité</a></li>
             <li><a accesskey="m" href="plan">Plan du site</a></li>
-            <li><a href="contact">Contact</a></li>
             <li><a href="informations_legales">Informations légales</a></li>
             <li><a href="credits">Crédits</a></li>
-            <li class="fluxRSS"><a href="getrss.html?flux=flux_actualites" target="_blank">Flux RSS</a></li>
+            <li class="fluxRSS"><a href="rss">Flux RSS</a></li>
         </ul>
     </div>
  </div>

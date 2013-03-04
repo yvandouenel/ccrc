@@ -1333,3 +1333,25 @@ body.section-newsletters h3{
 body.section-newsletters #content img{
     margin-bottom: 15px;
 }
+/* rss ************************************************************************/
+ul.ul_rss li{
+    list-style: none;
+}
+ul.ul_rss li a, a.link_rss{
+    display: block;
+    background: url(../images/icons/rss-small.png) no-repeat 0 0;
+    height: 29px;
+    padding-left : 40px;
+    margin-bottom : 15px;
+}
+ul.ul_rss li a:hover, a.link_rss:hover{
+    background: url(../images/icons/rss-small.png) no-repeat 0 100%;
+}
+a.rss_top_list{
+    float:right;
+    position: relative;
+    top : -46px;
+}
+div.view-id-agenda a.rss_top_list{
+    top : -70px;
+}
