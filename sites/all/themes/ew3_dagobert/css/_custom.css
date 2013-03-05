@@ -768,6 +768,9 @@ display: none;
 #main div#content a#all-agenda-home:hover{
     background: url(../images/icons/bgAgendaPlus.png) no-repeat 0 100%;
 }
+body.page-actualites #main div#content a#all-actu-home{
+    display: none;
+}
 
 #block-views-actualites-accueil-block h2{
     background : url(../images/actualite_bg_title_home.png) no-repeat 0 0;
