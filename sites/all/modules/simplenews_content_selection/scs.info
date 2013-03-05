@@ -9,9 +9,9 @@ files[] = scs.module
 files[] = scs.admin.inc
 files[] = scs.theme.inc
 
-; Information added by drupal.org packaging script on 2012-11-21
-version = "7.x-1.0-alpha5"
+; Information added by drupal.org packaging script on 2013-02-13
+version = "7.x-1.0-alpha5+2-dev"
 core = "7.x"
 project = "simplenews_content_selection"
-datestamp = "1353488338"
+datestamp = "1360762209"
 
