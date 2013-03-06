@@ -82,7 +82,7 @@ function wysiwyg_ckeditor_version($editor) {
       fclose($library);
       // Version numbers need to have three parts since 3.0.1.
       $version[1] = preg_replace('/^(\d+)\.(\d+)$/', '${1}.${2}.0', $version[1]);
-      return $version[1] . '.' . $version[2];
+      return $version[1];//bug sur D7 . '.' . $version[2];
     }
     $max_lines--;
   }
