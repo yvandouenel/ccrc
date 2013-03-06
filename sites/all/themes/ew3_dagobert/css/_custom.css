@@ -242,7 +242,8 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     top :68px;
     left : 19px;
     z-index:9;*/
-    margin:67px 0 0 0;
+    margin:66px 0 0 0;
+    border:1px solid transparent;
 }
 #over_hb_home{
     position : absolute;
@@ -299,6 +300,8 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     padding : 0;
     margin : 0;
     float : right;
+    height : 49px;
+    overflow: hidden;
 }
 .menu-name-menu-menu-commodit-haut ul li{
     padding : 0;
@@ -590,13 +593,13 @@ body.front #block-om-maximenu-om-maximenu-1{
     padding : 0;
     text-align:left;
 }
-#om-menu-menu-principal li.om-leaf li.leaf a,
+#om-menu-menu-principal li.om-leaf ul.menu li.leaf a,
 #om-menu-menu-principal li.om-leaf ul.menu li a{
     line-height: 14px;
     text-align:left;
-    padding : 10px 0 0 0;
+    padding : 10px 0 ;
     margin : 0;
-    height : 20px;
+    height : auto;
     width : 210px;
     padding-left : 38px;
     color : black;
