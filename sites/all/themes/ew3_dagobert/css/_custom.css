@@ -125,6 +125,18 @@ body.page-newsletters .breadcrumb{
 body.page-publications .breadcrumb{
     background-color: #D80038;
 }
+body.page-publications .breadcrumb{
+    background-color: #D80038;
+}
+body.section-tourisme-et-loisirs .breadcrumb{
+    background-color: #D40136;
+}
+body.section-petite-enfance .breadcrumb{
+    background-color: #EE8303;
+}
+body.section-environnement .breadcrumb{
+    background-color: #99BF10;
+}
 
 .breadcrumb li a{
    color : white;
@@ -551,7 +563,10 @@ body.front #block-om-maximenu-om-maximenu-1{
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-1 .om-maximenu-content{border-color: #4F9CCA; }
 /* Première colonne du megamenu ************************************************/
 #block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block,
-.block-views-id-textes_mega_menus-block_1, .block-views-id-textes_mega_menus-block_2{
+.block-views-id-textes_mega_menus-block_1, .block-views-id-textes_mega_menus-block_2,
+.block-views-id-textes_mega_menus-block_3, .block-views-id-textes_mega_menus-block_4,
+.block-views-id-textes_mega_menus-block_5, .block-views-id-textes_mega_menus-block_6{
+    width:315px;
     width:315px;
     padding : 0;
     margin : 20px 0 0 0;
@@ -1064,6 +1079,15 @@ body.page-newsletters h2#page-title{
 body.page-publications h2#page-title{
      border-bottom : 3px solid #D80038;
 }
+body.section-tourisme-et-loisirs h2#page-title{
+     border-bottom : 3px solid #D40136;
+}
+body.section-petite-enfance h2#page-title{
+     border-bottom : 3px solid #EE8303;
+}
+body.section-environnement h2#page-title{
+     border-bottom : 3px solid #99BF10;
+}
 
 /* Fond des contenus centraux *************************************************/
 
@@ -1071,7 +1095,8 @@ body.page-publications h2#page-title{
 .node-actualites,.section-agenda .view-id-agenda,.node-agenda,
 .node-webform ,body.section-offres-emploi #content, .view-id-publications,
 .node-simplenews,.block-mailchimp-lists,
-.view-id-carte_etablissements, body.page-node-mailchimp-campaigns #content{
+.view-id-carte_etablissements, body.page-node-mailchimp-campaigns #content,
+.page-user #content{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px;
@@ -1373,4 +1398,11 @@ a.rss_top_list{
 }
 div.view-id-agenda a.rss_top_list{
     top : -70px;
+}
+/* user-login *****************************************************************/
+#block-user-login{
+    background-color: white;
+    margin-top:0;
+    padding : 20px 20px;
+    border-radius : 8px 8px 8px 8px;
 }
