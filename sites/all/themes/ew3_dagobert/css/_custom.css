@@ -556,7 +556,7 @@ body.front #block-om-maximenu-om-maximenu-1{
     background : #F5F5F5 url(../images/fond_big_menu.gif) no-repeat 52% 0;
 }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-2 .om-maximenu-content{border-color: #DD9D17; }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-4 .om-maximenu-content{border-color: #DD9D17; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-4 .om-maximenu-content{border-color: #D40136; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-3 .om-maximenu-content{border-color: #EE8303; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-5 .om-maximenu-content{border-color: #99BF10; }
 #block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-6 .om-maximenu-content{border-color: #5F9C03; }
@@ -820,7 +820,7 @@ body.page-actualites #main div#content a#all-actu-home{
     width : 150px;
     position : absolute;
     top:47px;
-    left:560px;
+    left:470px;
     width:200px;
     overflow: hidden;
 }
@@ -995,6 +995,7 @@ form#views-exposed-form-agenda-page-1 div{
     border-left : 3px solid #D80038;
     margin : 20px 0 0 0;
     padding : 5px 32px;
+    clear : both;
 }
 .page-agenda .description{
     display : none;
@@ -1099,7 +1100,7 @@ body.section-environnement h2#page-title{
 .page-user #content{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
-    padding : 24px 12px;
+    padding : 24px 12px 120px 12px;
 }
 body.page-node-mailchimp-campaigns #content ul,
 body.page-node-mailchimp-campaigns #content div,
@@ -1167,6 +1168,9 @@ div.view-elus{
 }
 td.td_field_elu_photo{
     width:16%;
+}
+.view-id-offre_emplois ul li{
+    list-style: none;
 }
 /* Offres d'emplois ***********************************************************/
 div.view-offre-emplois div.field-content{
@@ -1274,7 +1278,9 @@ input#edit-submit-publications{
     height : 200px;
     float : left;
     overflow: hidden;
-    margin : 0 5px 0 0;
+    margin : 0 10px 0 0;
+    border: 1px solid #DD9D17;
+    border-radius:3px 3px 3px 3px;
 }
 .views-field-field-publi-thematique{
     font-size : 0.6em;
