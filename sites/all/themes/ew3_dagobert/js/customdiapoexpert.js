@@ -4,7 +4,7 @@ var diaporama_width = 311;
 var diaporama_height = 260;
 var class_text_control = ''; //la classe ".controleur" doit être utilisée
 var create_controleur = 1; //création des "controleurs" en chiffres
-var over_image = 1; // le résumé apparait au survol de l'image
+var over_image = 0; // le résumé apparait au survol de l'image
 
 var class_du_diapo ="#block-views-actualites-accueil-block";
 var ul_du_diapo ="#block-views-actualites-accueil-block ul";
