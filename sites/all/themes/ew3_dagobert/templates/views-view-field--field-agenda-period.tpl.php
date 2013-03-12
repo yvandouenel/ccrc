@@ -23,6 +23,7 @@
  */
 ?>
 <?php
+$output = preg_replace('/[0-9]{2}:[0-9]{2}/i', '', $output);
 $output = str_replace("00:00", "",$output);
 $output = str_replace(" - ", " ",$output);
 $output = str_replace(":00", "h",$output);
