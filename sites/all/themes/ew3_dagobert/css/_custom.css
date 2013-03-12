@@ -219,26 +219,47 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     background: url(../images/icons/fluxRSS.gif) no-repeat 0 100%;
 }
 /* bandeau ********************************************************************/
+#header{
+    display:block;
+}
 .region-header{
     border : 1px solid transparent;
 }
 #header h1{
-    display: inline;
-}
-#logo{
     z-index:99;
     position : absolute;
-    top :20px;
+    top :0px;
     left :10px;
 }
 .view-images-bandeau-sauf-accueil ul{
     list-style: none;
 }
+#block-views-849f3529968672247a046e4360dc46c1, #block-views-f3c9335c511be5b63b9b88a718f53bd9,
+#block-views-8f3b6b402cfd30f28b4b902e2e20c3cd,#block-views-c489abdf3d3ce6b1a2a507cfefac1ee5,
+#block-views-95268adf8f784c9484e21f9ae008cc0a,#block-views-611883c56353b879285ea483680cb68a{
+    clear:both;
+    margin : 67px 0 0 0;
+    height: 148px;
+    padding:0 0 0 118px;
+    overflow: hidden;
+}
 .view-images-bandeau-sauf-accueil{
-    position : absolute;
-    top :44px;
-    left :129px;
     z-index:9;
+    margin: 0;
+    padding:0;
+    height: 148px;
+    overflow: hidden;
+}
+.view-images-bandeau-sauf-accueil div{
+    margin: 0;
+    padding:0;
+    height: 148px;
+    overflow: hidden;
+}
+.view-images-bandeau-sauf-accueil div ul{
+    margin: 0;
+    padding:0;
+    margin : 0 0 0 30px;
 }
 
 #over_hb_all{
@@ -256,6 +277,8 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     z-index:9;*/
     margin:66px 0 0 0;
     border:1px solid transparent;
+    width:956px;
+    height: 266px;
 }
 #over_hb_home{
     position : absolute;
@@ -304,17 +327,18 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 /* Menus hauts ****************************************************************/
 #block-menu-block-1{
-    margin :10px 0 0 407px;
-    width: 277px;
-}
-.menu-name-menu-menu-commodit-haut ul{
-    list-style: none;
+    margin :10px 0 0 0;
+    width: 265px;
     padding : 0;
-    margin : 0;
-    float : right;
+    float : left;
     height : 49px;
     overflow: hidden;
 }
+#block-menu-block-1 ul{
+    padding : 0;
+    margin:0;
+}
+
 .menu-name-menu-menu-commodit-haut ul li{
     padding : 0;
     margin : 0;
@@ -356,10 +380,10 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-719 a:hover{
    background: url(../images/icons/btPublication.png) no-repeat 0 100%;
 }
-.menu-name-menu-menu-commodit-haut ul li.menu-mlid-884 a{
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-915 a{
    background: url(../images/icons/btCarte.png) no-repeat 0 0;
 }
-.menu-name-menu-menu-commodit-haut ul li.menu-mlid-884 a:hover{
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-915 a:hover{
    background: url(../images/icons/btCarte.png) no-repeat 0 100%;
 }
 .over_menu{
@@ -375,10 +399,15 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 }
 /* Menu haut Actus ************************************************************/
 #block-menu-block-7{
-   position : absolute;
-    top: 35px;
-    left : 698px;
-    width: 243px;
+  /* position : absolute;
+   top: 35px;
+   left : 698px;*/
+   margin: 35px 0 0 0;
+   padding :0;
+   float:left;
+   width: 243px;
+   height:24px;
+   overflow: hidden;
 }
 #block-menu-block-7 h2{
    position : absolute;
@@ -465,10 +494,13 @@ body.section-developpement-economique .region-sidebar-first ul.menu li a:hover{
 }
 /* search *********************************************************************/
 #block-search-form{
-    position : absolute;
+    /*position : absolute;
     top: 35px;
-    left : 236px;
-    width: 186px;
+    left : 236px;*/
+    float:left;
+    margin:35px 5px 0 236px;
+    width: 175px;
+    border-right: 1px dotted white;
     background: url(../images/icons/bgSearch.gif) no-repeat 0 0;
     height: 24px;
 }
@@ -535,7 +567,7 @@ body.front #block-om-maximenu-om-maximenu-1{
     margin:-6px 0 0 -1px;
 }
 #block-om-maximenu-om-maximenu-1{
-     margin:215px 0 0 1px;
+     margin:0 0 0 1px;
 }
 #block-om-maximenu-om-maximenu-1 h2.block-title{
    position: absolute;
@@ -662,43 +694,55 @@ body.front #block-om-maximenu-om-maximenu-1{
     width:127px;
     margin : 0 2px 0 16px;
 }
-#om-menu-menu-principal li#om-leaf-om-u1-654698953-2 a:hover{
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-2 a:hover,
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-2 a.active {
     background-color: #DD9D17;
+    color : white;
 }
 #om-leaf-om-u1-654698953-4 a{
     width:95px;
     margin : 0 2px 0 0;
 }
-#om-menu-menu-principal li#om-leaf-om-u1-654698953-4 a:hover{
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-4 a:hover,
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-4 a.active{
     background-color: #D40136;
+    color : white;
 }
 #om-leaf-om-u1-654698953-3 a{
     width:135px;
     margin :  0 2px 0 0;
 }
-#om-menu-menu-principal li#om-leaf-om-u1-654698953-3 a:hover{
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-3 a:hover,
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-3 a.active{
     background-color: #EE8303;
+    color : white;
 }
 #om-leaf-om-u1-654698953-5 a{
     width:143px;
     margin :  0 2px 0 0;
 }
-#om-menu-menu-principal li#om-leaf-om-u1-654698953-5 a:hover{
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-5 a:hover,
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-5 a.active{
     background-color: #99BF10;
+    color : white;
 }
 #om-leaf-om-u1-654698953-6 a{
     width:159px;
     margin :  0 1px 0 0;
 }
-#om-menu-menu-principal li#om-leaf-om-u1-654698953-6 a:hover{
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-6 a:hover,
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-6 a.active{
     background-color: #5F9C03;
+    color : white;
 }
 #om-leaf-om-u1-654698953-1 a{
     width:217px;
     margin : 0 1px;
 }
-#om-menu-menu-principal li#om-leaf-om-u1-654698953-1 a:hover{
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-1 a:hover,
+#om-menu-menu-principal li#om-leaf-om-u1-654698953-1 a.active{
     background-color: #4F9CCA;
+    color : white;
 }
 
 /* added **********************************************************************/
@@ -846,6 +890,7 @@ body.page-actualites #main div#content a#all-actu-home{
     height: 168px;
     background-color: white;
     overflow: hidden;
+    display:none;
 }
 .views-field-field-summary-news a{
     display:block;
@@ -920,7 +965,7 @@ body.page-actualites #main div#content a#all-actu-home{
     border:3px solid #F5F5F5;
     border-radius : 8px 8px 8px 8px;
     position : relative;
-    height: 45px;
+    height: 42px;
     font-family: arial, sans-serif
 }
 #block-views-agenda-block ul li .views-field-field-agenda-period,
@@ -956,6 +1001,15 @@ body.page-actualites #main div#content a#all-actu-home{
 }
 .view-id-agenda div.view-content{
     height : 223px;
+}
+div.agenda_commune_home{
+  font-size: 0.7em;
+   position: absolute;
+   top: 20px;
+   left : 125px;
+   width: 140px;
+   color : #DD9D17;
+   text-align : right;
 }
 /* page agenda ****************************************************************/
 .views-field-field-agenda-period,
