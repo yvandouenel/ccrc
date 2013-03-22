@@ -137,6 +137,10 @@ body.section-petite-enfance .breadcrumb{
 body.section-environnement .breadcrumb{
     background-color: #99BF10;
 }
+body.section-marches-publics .breadcrumb{
+    background-color: #629A00;
+}
+
 
 .breadcrumb li a{
    color : white;
@@ -362,7 +366,8 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-396 a:hover{
    background: url(../images/icons/btEmploi.png) no-repeat 0 100%;
 }
-.menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a{
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a,
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-952 a{
    background: url(../images/icons/btMarchePublic.png) no-repeat 0 0;
 }
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-398 a:hover{
@@ -1143,6 +1148,9 @@ body.section-petite-enfance h2#page-title{
 body.section-environnement h2#page-title{
      border-bottom : 3px solid #99BF10;
 }
+body.section-marches-publics h2#page-title{
+    border-bottom : 3px solid #629A00;
+}
 
 /* Fond des contenus centraux *************************************************/
 
@@ -1151,7 +1159,7 @@ body.section-environnement h2#page-title{
 .node-webform ,body.section-offres-emploi #content, .view-id-publications,
 .node-simplenews,.block-mailchimp-lists,
 .view-id-carte_etablissements, body.page-node-mailchimp-campaigns #content,
-.page-user #content, body.page-node-176 #content{
+.page-user #content, body.page-node-176 #content, .node-liste-marches-publics{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px 120px 12px;
@@ -1468,4 +1476,22 @@ div.view-id-agenda a.rss_top_list{
     margin-top:0;
     padding : 20px 20px;
     border-radius : 8px 8px 8px 8px;
+}
+/* marches publics ************************************************************/
+div.views-field-field-marches-date-limite div{
+    display: inline;
+}
+.node-type-liste-marches-publics #main h3{
+    border-bottom : 2px solid #629A00;
+}
+div.view-marches-publics-view h4{
+    border-bottom : 1px dashed #629A00;
+}
+div.view-marches-publics-view h5{
+    margin-bottom : 0;
+    padding-left : 5px;
+    border-left : 4px solid #629A00;
+}
+div.view-marches-publics-view div.view-content{
+   padding-left: 20px;
 }
