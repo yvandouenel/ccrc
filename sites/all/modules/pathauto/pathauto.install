@@ -8,6 +8,40 @@
  */
 
 /**
+ * Implements hook_schema().
+ */
+function pathauto_schema() {
+  $schema['pathauto'] = array(
+    'description' => '',
+    'fields' => array(
+      'entity_type' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'description' => 'An entity type.',
+      ),
+      'entity_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'An entity ID.',
+      ),
+      'pathauto' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The automatic alias status of the entity.',
+      ),
+    ),
+    'primary key' => array('entity_type', 'entity_id'),
+  );
+
+  return $schema;
+}
+
+
+/**
  * Implements hook_install().
  */
 function pathauto_install() {
@@ -166,6 +200,23 @@ function pathauto_update_7005() {
   }
 
   return 'Your Pathauto taxonomy and forum patterns have been corrected. You may wish to regenerate your taxonomy and forum term URL aliases.';
+}
+
+/**
+ * Create pathauto table, copying data from pathauto_persist if it exists
+ */
+function pathauto_update_7006() {
+  if (!db_table_exists('pathauto')) {
+    $schema = drupal_get_schema_unprocessed('pathauto', 'pathauto');
+    if (db_table_exists('pathauto_persist')) {
+      db_rename_table('pathauto_persist', 'pathauto');
+      db_create_table('pathauto_persist', $schema);
+      return 'This version of Pathauto includes the functionality of Pathauto Persist, which can be safely disabled and removed. All settings have been copied.';
+    }
+    else {
+      db_create_table('pathauto', $schema);
+    }
+  }
 }
 
 /**
