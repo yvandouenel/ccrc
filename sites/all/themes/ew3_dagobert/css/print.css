@@ -65,5 +65,8 @@
     visibility: hidden;
     display: none;
   }
+  div.region-header, #over_hb_all{
+      display:none;
+}
 
 } /* End @media print */

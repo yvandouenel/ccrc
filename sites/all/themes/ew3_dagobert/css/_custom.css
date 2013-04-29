@@ -28,6 +28,7 @@ body.front #over_body{
 .savoir_plus{
 
 }
+
 .clear{
     clear:both;
 }
@@ -96,11 +97,19 @@ body.section-communaute-de-communes table caption {
 body.section-communaute-de-communes td,
 body.section-communaute-de-communes th{
     border: 0px solid #333333;
+    border-bottom : 1px solid #43291B;
+    border-left: 1px solid #43291B;
     padding: 3px;
     vertical-align: top;
     font-size: 0.9em;
 }
-td.alignRight,th.alignRight{
+
+body.section-communaute-de-communes table.table_fiche_elu td{
+    border: 0;
+    font-size: 1em;
+}
+body.section-communaute-de-communes td.alignRight,
+body.section-communaute-de-communes th.alignRight{
     text-align: right;
     white-space: nowrap;
     padding-left :20px;
@@ -471,9 +480,9 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     font-family: "Viga",sans-serif;
     text-decoration: none;
     background : url(../images/icons/bgMenuleft.png) no-repeat 0 5px;
-    padding-left : 20px;
+    padding : 8px 0 8px 22px;
     display: block;
-    margin :20px 0 5px 0;
+    margin :10px 0 5px 0;
    
 }
 .region-sidebar-first ul.menu li ul li a{
@@ -483,15 +492,77 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     border-left: 3px solid #DD9D17;
     margin :0;
 }
+
+.region-sidebar-first ul.menu li a.active{
+    background : #DD9D17 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+    border-radius : 8px 8px 8px 8px;
+}
+.region-sidebar-first ul.menu li a:hover{
+    border-radius : 8px 8px 8px 8px;
+}
+body.section-communaute-de-communes .region-sidebar-first ul.menu li ul li a{
+    border-left: 3px solid #DD9D17;
+    background : url(../images/icons/bgMenuOrangeClair.png) no-repeat 3px 5px;
+}
+body.section-communaute-de-communes .region-sidebar-first ul.menu li a:hover,
+body.section-communaute-de-communes .region-sidebar-first ul.menu li a.active{
+    background : #DD9D17 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+}
+body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li ul li a{
+    border-left: 3px solid #D40136;
+    background : url(../images/icons/bgMenuRouge.png) no-repeat 3px 5px;
+}
+body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li a:hover,
+body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li a.active{
+    background : #D40136 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+    color : white;
+}
+body.section-petite-enfance .region-sidebar-first ul.menu li ul li a{
+    border-left: 3px solid #EE8303;
+    background : url(../images/icons/bgMenuOrangeFonce.png) no-repeat 3px 5px;
+}
+body.section-petite-enfance .region-sidebar-first ul.menu li a:hover,
+body.section-petite-enfance .region-sidebar-first ul.menu li a.active{
+    background : #EE8303 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+}
+body.section-environnement .region-sidebar-first ul.menu li ul li a{
+    border-left: 3px solid #99BF10;
+    background : url(../images/icons/bgMenuVertClair.png) no-repeat 3px 5px;
+}
+body.section-environnement .region-sidebar-first ul.menu li a:hover{
+    background : #99BF10 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+}
+body.section-jeunesse-emploi .region-sidebar-first ul.menu li ul li a{
+    border-left: 3px solid #629A00;
+    background : url(../images/icons/bgMenuVertFonce.png) no-repeat 3px 5px;
+}
+body.section-jeunesse-emploi .region-sidebar-first ul.menu li a:hover,
+body.section-jeunesse-emploi .region-sidebar-first ul.menu li a.active{
+    background : #629A00 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+}
+body.section-developpement-economique .region-sidebar-first ul.menu li ul li a{
+    border-left: 3px solid #4E9CD0;
+    background : url(../images/icons/bgMenuBleu.png) no-repeat 3px 5px;
+}
+body.section-developpement-economique .region-sidebar-first ul.menu li a:hover,
+body.section-developpement-economique .region-sidebar-first ul.menu li a.active{
+     background : #4E9CD0 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
+}
+
+
+/******************************************************************************/
 .region-sidebar-first ul.menu li ul li a.active{
     font-weight: normal;
     color : white;
     background-color: #DD9D17;
     border-left: 3px solid #DD9D17;
 }
-body.section-developpement-economique .region-sidebar-first ul.menu li a:hover{
-    background : url(../images/icons/bgMenuBleu.png) no-repeat 0 5px;
+
+body.section-tourisme-et-loisirs ul.menu li ul li a.active,
+body.section-tourisme-et-loisirs ul.menu li ul li a:hover{
+   background-color: #D40136;
 }
+
 /* Menus bas gauche ***********************************************************/
 #block-menu-menu-menus-bas-gauche h2{
    position : absolute;
@@ -613,6 +684,11 @@ body.front #block-om-maximenu-om-maximenu-1{
     padding : 0;
     margin : 0;
 }
+#om-menu-menu-principal li.om-leaf ul.menu ul.menu li{
+    padding : 0;
+    margin : 0 0 0 20px;
+    font-size : 0.9em;
+}
 #om-menu-menu-principal .views-field-title{
     margin: 0;
     padding : 0;
@@ -649,14 +725,18 @@ body.front #block-om-maximenu-om-maximenu-1{
 #om-menu-menu-principal li.om-leaf ul.menu li a{
     line-height: 14px;
     text-align:left;
-    padding : 10px 0 ;
+    padding : 10px 0 10px 38px ;
     margin : 0;
     height : auto;
     width : 210px;
-    padding-left : 38px;
     color : black;
     background : url(../images/icons/bgLienMegaMenu.png) no-repeat 17px 10px;
     border-radius: 3px 3px 3px 3px;
+}
+#om-menu-menu-principal li.om-leaf ul.menu ul.menu li a{
+    line-height: 12px;
+    padding : 6px 0 6px 38px ;
+     background : url(../images/icons/bgLienMegaMenu.png) no-repeat 17px 6px;
 }
 #om-menu-menu-principal li.om-leaf li.leaf a:hover{
     color : white;
@@ -749,7 +829,9 @@ body.front #block-om-maximenu-om-maximenu-1{
     background-color: #4F9CCA;
     color : white;
 }
-
+ul li.expanded {
+    list-style:none;
+}
 /* added **********************************************************************/
 .om-maximenu ul.om-menu li.om-leaf {
 position:static !important;
@@ -1004,9 +1086,7 @@ body.page-actualites #main div#content a#all-actu-home{
     font-family: verdana, arial,sans-serif;
     text-decoration : none;
 }
-.view-id-agenda div.view-content{
-    height : 223px;
-}
+
 div.agenda_commune_home{
   font-size: 0.7em;
    position: absolute;
@@ -1159,7 +1239,9 @@ body.section-marches-publics h2#page-title{
 .node-webform ,body.section-offres-emploi #content, .view-id-publications,
 .node-simplenews,.block-mailchimp-lists,
 .view-id-carte_etablissements, body.page-node-mailchimp-campaigns #content,
-.page-user #content, body.page-node-176 #content, .node-liste-marches-publics{
+.page-user #content, body.page-node-176 #content, .node-liste-marches-publics,
+.section-tourisme-et-loisirs .view-etablissements-sitra .view-content,
+#block-views-offre-emplois-block-statutaire, #block-views-offre-emplois-block-2{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px 120px 12px;
@@ -1182,6 +1264,7 @@ li.liste-elus span.field-content a{
    margin:0 30px 30px 0;
    text-align: center;
    color : #981D22;
+   font-size : 0.9em;
 }
 li.liste-elus span.field-content a:hover{
    color : #000;
@@ -1214,6 +1297,16 @@ div.view-elus{
     font-size: 1.6em;
     color : #DD9D17;
 }
+.table_fiche_elu td.td_fiche_elu div.field-name-field-elu-qualite div.field-label,
+.table_fiche_elu td.td_fiche_elu div.field-name-field-elu-representation div.field-label{
+    float: none;
+}
+
+body.section-communaute-de-communes td .field-name-field-elu-commune div.field-items{
+   font-size: 1.2em;
+   margin-top: 3px;
+}
+
 .table_fiche_elu td.td_fiche_elu .field-items{
     margin-top: 6px;
 }
@@ -1244,7 +1337,7 @@ div.pratique_emploi{
     padding: 5px;
     border : 1px solid #4E9CD0;
     border-radius : 8px 8px 8px 8px ;
-    margin :-40px 30px 0 20px;
+    margin :-40px 30px 10px 20px;
 }
 div.pratique_emploi h5{
    margin:0.5em;
@@ -1393,6 +1486,35 @@ a.link-top:hover{
 .page-search p.search-info{
     display : none;
 }
+/* Pages etablissements *******************************************************/
+body.node-type-etablissements .field-name-field-etablissement-image,
+body.section-tourisme-et-loisirs .views-field-field-etablissement-image{
+    float: left;
+    width : 300px;
+}
+.field-name-field-etablissement-image img, .views-field-field-etablissement-image img{
+    border-radius : 8px 8px 8px 8px;
+}
+body.node-type-etablissements .field-name-field-etablissement-coordonnees,
+body.section-tourisme-et-loisirs .views-field-field-etablissement-coordonnees{
+    float: right;
+    width : 350px;
+}
+body.node-type-etablissements .field-type-text-with-summary,
+body.section-tourisme-et-loisirs .views-field-body{
+    clear: both;
+}
+body.section-tourisme-et-loisirs .views-field-body{
+    margin-bottom : 15px;
+    padding-bottom : 15px;
+}
+.view-etablissements-sitra .views-field-title a{
+    text-decoration : none;
+}
+.view-etablissements-sitra h3{
+     background: url(../images/bg_etbs.gif) no-repeat 0 100%;
+     padding-bottom : 9px;
+}
 /* Etablissements Gmap google *************************************************/
 .gmap-popup p{
     font-size :0.8em;
@@ -1409,9 +1531,29 @@ div.location-locations-wrapper{
     margin: 0px 10px 5px 0;
     border-right : 1px dotted #4E9CD0;
     border-bottom : 1px dotted #4E9CD0;
+    height: 145px;
+}
+div.img_google_map{
+     float: left;
+     width: 100px;
+     margin-right : 20px;
+}
+div.img_google_map a img{
+     float: left;
+     margin-right : 10px;
 }
 .gmap-popup{
     height:160px !important;
+    width: 500px !important;
+}
+/*.gmap-popup address{
+    font-size: 0.8em;
+}*/
+.gmap-popup p{
+    float: left;
+}
+.gmap-popup address p{
+    float: none;
 }
 
 /*Newsletter ******************************************************************/
