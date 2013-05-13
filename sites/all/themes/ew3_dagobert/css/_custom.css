@@ -93,6 +93,17 @@ body.section-communaute-de-communes table caption {
     border: 1px solid #333333;
     padding : 4px;
 }
+body.section-communaute-de-communes table.sansbordure, 
+body.section-communaute-de-communes table.sansbordure td{
+    border:0;
+    text-align: center;
+}
+body.section-communaute-de-communes table.sansbordure caption {
+    background-color: white;
+    color : white;
+    border: 0;
+    padding : 0;
+}
 
 body.section-communaute-de-communes td,
 body.section-communaute-de-communes th{
@@ -113,6 +124,16 @@ body.section-communaute-de-communes th.alignRight{
     text-align: right;
     white-space: nowrap;
     padding-left :20px;
+}
+table.environnement td{
+    font-size: 0.7em;
+}
+table.environnement td,table.environnement th {
+    padding-left : 5px;
+}
+table.environnement th {
+    background-color: #99BF10;
+    font-size: 0.8em;
 }
 /* fil d'ariane ***************************************************************/
 .breadcrumb{
@@ -497,9 +518,11 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     background : #DD9D17 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
     border-radius : 8px 8px 8px 8px;
 }
-.region-sidebar-first ul.menu li a:hover{
-    border-radius : 8px 8px 8px 8px;
+.section-developpement-economique .region-sidebar-first ul.menu li a.active,
+.section-developpement-economique .region-sidebar-first ul.menu li a:hover{
+    background : #4E9CD0 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
 }
+
 body.section-communaute-de-communes .region-sidebar-first ul.menu li ul li a{
     border-left: 3px solid #DD9D17;
     background : url(../images/icons/bgMenuOrangeClair.png) no-repeat 3px 5px;
@@ -529,7 +552,8 @@ body.section-environnement .region-sidebar-first ul.menu li ul li a{
     border-left: 3px solid #99BF10;
     background : url(../images/icons/bgMenuVertClair.png) no-repeat 3px 5px;
 }
-body.section-environnement .region-sidebar-first ul.menu li a:hover{
+body.section-environnement .region-sidebar-first ul.menu li a:hover,
+body.section-environnement .region-sidebar-first ul.menu li a.active{
     background : #99BF10 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
 }
 body.section-jeunesse-emploi .region-sidebar-first ul.menu li ul li a{
@@ -1241,7 +1265,8 @@ body.section-marches-publics h2#page-title{
 .view-id-carte_etablissements, body.page-node-mailchimp-campaigns #content,
 .page-user #content, body.page-node-176 #content, .node-liste-marches-publics,
 .section-tourisme-et-loisirs .view-etablissements-sitra .view-content,
-#block-views-offre-emplois-block-statutaire, #block-views-offre-emplois-block-2{
+#block-views-offre-emplois-block-statutaire, #block-views-offre-emplois-block-2,
+body.node-type-etablissements div.node-etablissements{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px 120px 12px;
@@ -1356,19 +1381,61 @@ div.pratique_emploi a{
 }
 /*formulaire offres d'emploi **************************************************/
 .webform-client-form label{
-    width: 300px;
+    width: 250px;
     float:left;
     clear:left;
+    text-align: right;
+    clear:both;
+    padding-right: 20px;
+}
+.webform-client-form .webform-component-radios label{
+    float: none;
+}
+.webform-client-form .webform-component-textarea label{
+    width: auto;
+}
+.webform-client-form input{
+    width: 330px;
+    clear : right;
+}
+.webform-client-form input.webform-calendar{
+    width: auto;
+}
+.webform-client-form .form-radios{
+    width: 400px;
+    float: right;
+    position: relative;
+    top: -25px;
+}
+/*forumaire inscritpion crèche pose un pb de décalage d'un input ???*/
+.webform-client-form div#edit-submitted-vous-concernant-monsieur-etes-vous-en-activite,
+.webform-client-form div#edit-submitted-vous-concernant-madame-etes-vous-en-activite{
+    position: relative;
+    top: -25px;
+    left :  40px;
+}
+body.page-node-42 .webform-client-form .form-radios{ /*taille plus grande pour une page sans menus gauche */
+    width: 625px;
+}
+.webform-client-form input.form-radio, .webform-client-form input.form-submit,
+.webform-client-form input.form-file{
+    width: auto;
 }
 .webform-client-form .webform-component-textarea label{
     float: none;
+    text-align: left;
 }
 .webform-client-form label.option{
     width:auto;
     clear:none;
     margin : 0 10px 0 3px;
 }
-.webform-client-form .form-radio{
+.webform-client-form div.form-type-radio{
+    float:left;
+    /*margin:5px 0 20px 0;*/
+    white-space: nowrap;
+}
+.webform-client-form input.form-radio{
     float:left;
     margin:5px 0 20px 0;
 }
@@ -1497,8 +1564,10 @@ body.section-tourisme-et-loisirs .views-field-field-etablissement-image{
 }
 body.node-type-etablissements .field-name-field-etablissement-coordonnees,
 body.section-tourisme-et-loisirs .views-field-field-etablissement-coordonnees{
-    float: right;
+    float: left;
     width : 350px;
+    border-left: 2px solid #D40136;
+    padding-left: 20px;
 }
 body.node-type-etablissements .field-type-text-with-summary,
 body.section-tourisme-et-loisirs .views-field-body{
@@ -1516,10 +1585,27 @@ body.section-tourisme-et-loisirs .views-field-body{
      padding-bottom : 9px;
 }
 /* Etablissements Gmap google *************************************************/
-.gmap-popup p{
+.gmap-popup p, .gmap-popup address{
     font-size :0.8em;
     padding : 0;
     margin :0;
+}
+.gmap-popup div.views-field-title a{
+    display: block;
+    /*border-bottom: 1px solid #8E7965;
+    text-decoration: none;*/
+    background: url("../images/icons/flecheDSmall.png") no-repeat scroll 0 0 transparent;
+    padding: 0 0 1px 30px;
+    margin-bottom: 20px;
+}
+
+#main div#content .gmap-popup div.views-field-title a:hover{
+    color: black;
+    background: url("../images/icons/flecheDSmall.png") no-repeat scroll 0 100% transparent;
+
+}
+.gmap-popup div.views-field-body div.field-content{
+    font-size :0.8em;
 }
 h3.location-locations-header,
 div.location-locations-wrapper{
@@ -1527,11 +1613,12 @@ div.location-locations-wrapper{
 }
 .ets_coordonnees{
     float: left;
-    padding : 0 5px 5px 0;
+    padding : 0 10px 10px 0;
     margin: 0px 10px 5px 0;
     border-right : 1px dotted #4E9CD0;
     border-bottom : 1px dotted #4E9CD0;
     height: 145px;
+    min-width: 180px;
 }
 div.img_google_map{
      float: left;
@@ -1546,13 +1633,8 @@ div.img_google_map a img{
     height:160px !important;
     width: 500px !important;
 }
-/*.gmap-popup address{
-    font-size: 0.8em;
-}*/
-.gmap-popup p{
-    float: left;
-}
-.gmap-popup address p{
+
+.gmap-popup address p, .gmap-popup address p{
     float: none;
 }
 
