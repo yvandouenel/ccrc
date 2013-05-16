@@ -22,10 +22,10 @@ function scs_views_action_info() {
 /**
  * Configuration form for tis action. Not used as form, but used as a step to go to the node sorter.
  */
-function scs_views_create_newsletter_action_form($form, $form_state, $context) {
-  $form = array_merge($form, _scs_get_metadata_form($form));
-  $nodes = array_keys($context['selection']);
-  $form = array_merge($form, _scs_get_sorting_form($form, $nodes));
+function scs_views_create_newsletter_action_form($context, $form_state) {
+  $form = array();
+  $form = _scs_get_metadata_form($form);
+  $form += _scs_get_sorting_form($form, $form_state['selection']);
   return $form;
 }
 

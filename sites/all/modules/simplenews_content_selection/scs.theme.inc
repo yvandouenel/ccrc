@@ -7,14 +7,26 @@
 
 /**
  * Theme the node selection form
+ *
+ * @param $form Array The form structure ready to be rendered
  */
 function theme_scs_sortable_table($form) {
   $form = $form['form'];
   $headers = array(t('Node title'), t('Weight'));
   $rows = array();
-  foreach (element_children($form['nodes']) as $nid) {
+
+  $nids = element_children($form['nodes']);
+
+  // Fetch the titles for each nid
+  $titles = db_select('node', 'n')
+    ->fields('n', array('nid', 'title'))
+    ->condition('nid', array_values($nids))
+    ->execute()
+    ->fetchAllKeyed();
+
+  foreach ($nids as $nid) {
     $row = array();
-    $row[] = db_query('SELECT title FROM {node} WHERE nid = :nid', array(':nid' => $nid))->fetchField();
+    $row[] = $titles[$nid];
     $row[] = drupal_render($form['nodes'][$nid]['weight']);
     $rows[] = array(
       'data' => $row,
@@ -32,11 +44,12 @@ function theme_scs_sortable_table($form) {
 }
 
 /**
- * Each selected node goes true this function to create a nice body
+ * Each selected node goes through this function to create a part of the
+ * newsletter body
+ *
+ * @param $node Array The node, as an array (WTF???)
  */
 function theme_scs_node_output($node) {
-  //TODO Fix a teaser of this node
-  $output = '';
   $output = '<div id="node_' . $node['nid'] . '">';
   $output .= '<h1>' . $node['title'] . '</h1>';
   $output .= '<p>' . $node['body'][LANGUAGE_NONE][0]['value'] . '</p>';
@@ -47,35 +60,10 @@ function theme_scs_node_output($node) {
 }
 
 /**
- * Theme the node sort form into a table
- */
-function theme_scs_sort_nodes($form) {
-  $form = $form['form'];
-  $headers = array(t('Node title'), t('Weight'));
-  $rows = array();
-
-  foreach ($form as $name => $field) {
-    if (preg_match('/^weight_/', $name)) {
-      $nid = explode('_', $name);
-      $nid = $nid[1];
-      $title = db_query('SELECT title FROM {node} WHERE nid = :nid', array(':nid' => $nid))->fetchField();
-      unset($form[$name]['#title']);
-
-      $row = array();
-      $row[] = $title;
-      $row[] = drupal_render($form[$name]);
-      $rows[] = array(
-        'data' => $row,
-        'class' => array('draggable'),
-      );
-    }
-  }
-
-  return drupal_render($form['newsletter_title']) . drupal_render($form['newsletter_toc']) . drupal_render($form['newsletter_content_type']) . theme('table', array('header' => $headers, 'rows' => $rows, 'attributes' => array('id' => 'scs_node_sort_table'))) . drupal_render_children($form);
-}
-
-/**
- * Theme function to add the titles of the selected nodes at top of the newsletter
+ * Theme function to add the titles of the selected nodes at top of the
+ * newsletter to build the table of contents
+ *
+ * @param $variables Array An array containing 'titles'
  */
 function theme_scs_node_titles($variables) {
   if (variable_get('scs_format', 'plain') == 'plain') {
@@ -87,7 +75,10 @@ function theme_scs_node_titles($variables) {
 }
 
 /**
- * Theme a complete newsletter.
+ * Theme a complete newsletter, appending each node rendered through
+ * theme_scs_node_output() and appending ToC if required
+ *
+ * @param $variables Array An array containing 'nodes' and 'toc'
  */
 function theme_scs_newsletter_output($variables) {
   $body = '';

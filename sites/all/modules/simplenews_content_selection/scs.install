@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function scs_uninstall() {
+  // This variable can be used by advanced users (there is no user
+  // interface to set it) to the desired text format for new
+  // simplenews newsletters 
+  variable_del('scs_body_format');
+
+  // Other variables to delete on uninstall
+  variable_del('scs_content_types');
+  variable_del('scs_format');
+  variable_del('scs_publish_default');
+  variable_del('scs_default_title');
+}
