@@ -59,6 +59,9 @@ function location_views_handlers() {
       'location_handler_field_location_street' => array(
         'parent' => 'views_handler_field',
       ),
+      'location_handler_field_location_additional' => array(
+        'parent' => 'views_handler_field',
+      ),
       'location_views_handler_filter_proximity' => array(
         'parent' => 'views_handler_filter',
       ),
@@ -174,6 +177,24 @@ function location_views_data() {
     'field' => array(
       'handler' => 'location_handler_field_location_street',
       'click sortable' => TRUE,
+    ),
+    'filter' => array(
+      'handler' => 'views_handler_filter_string',
+    ),
+    'sort' => array(
+      'handler' => 'views_handler_sort',
+    ),
+  );
+
+  $data['location']['additional'] = array(
+    'title' => t('Additional'),
+    'help' => t('Additional street address of the selected location.'),
+    'field' => array(
+      'click sortable' => TRUE,
+    ),
+    'argument' => array(
+      'handler' => 'views_handler_argument_string',
+      // 'empty field name' => t('Unknown'),
     ),
     'filter' => array(
       'handler' => 'views_handler_filter_string',
@@ -557,6 +578,23 @@ function location_views_proximity_get_reference_location($view, $options) {
       }
       $coordinates['latitude'] = (float) $lat;
       $coordinates['longitude'] = (float) $lon;
+      break;
+    case 'geoip':
+      $coordinates['latitude'] = (float) $options['latitude'];
+      $coordinates['longitude'] = (float) $options['longitude'];
+      if (module_exists('smart_ip')) {
+        if (isset($_SESSION['smart_ip']['location']['latitude']) &&
+          isset($_SESSION['smart_ip']['location']['longitude'])) {
+          $coordinates['latitude'] = (float) $_SESSION['smart_ip']['location']['latitude'];
+          $coordinates['longitude'] = (float) $_SESSION['smart_ip']['location']['longitude'];
+        }
+      }
+      elseif (module_exists('geoip')) {
+        if ($geoip_location = geoip_city()) { // intentional assignment of $geoip
+          $coordinates['latitude'] = $geoip_location->latitude;
+          $coordinates['longitude'] = $geoip_location->longitude;
+        }
+      }
       break;
 
   }

@@ -5,9 +5,9 @@ package = Mail
 dependencies[] = views_bulk_operations
 dependencies[] = scs
 
-; Information added by drupal.org packaging script on 2013-02-13
-version = "7.x-1.0-alpha5+2-dev"
+; Information added by drupal.org packaging script on 2013-03-18
+version = "7.x-1.0-alpha6"
 core = "7.x"
 project = "simplenews_content_selection"
-datestamp = "1360762209"
+datestamp = "1363624530"
 

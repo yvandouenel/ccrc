@@ -95,6 +95,7 @@ function scs_node_operations() {
 
 /**
  * Implements hook_form_alter()
+ *
  * Used to add an extra multistep operation to admin/content/node
  */
 function scs_form_alter(&$form, &$form_state, $form_id) {
@@ -145,6 +146,9 @@ function _scs_create_newsletter($title, $nodes, $toc = 0, $type) {
   $newsletter->body[LANGUAGE_NONE][0]['value'] = $body;
   //$newsletter->teaser['und']['summary'] = node_teaser($body);
   $newsletter->body[LANGUAGE_NONE][0]['summary'] = '';
+  if ($format = variable_get('scs_body_format', FALSE)) {
+    $newsletter->body[LANGUAGE_NONE][0]['format'] = $format;
+  }
   $newsletter->status = variable_get('scs_publish_default', 1);
   $newsletter->revision = 1;
   $newsletter->promote = 0;
@@ -271,7 +275,7 @@ function scs_node_selection($form, &$form_state) {
       '#type' => 'hidden',
       '#value' => 2,
     );
-    if (!empty($form_state['values']['scs_title']) && !empty($form_state['values']['scs_toc'])) {
+    if (isset($form_state['values']['scs_title']) && isset($form_state['values']['scs_toc'])) {
       $form['scs_title'] = array(
         '#type' => 'hidden',
         '#value' => $form_state['values']['scs_title'],
@@ -297,6 +301,13 @@ function scs_node_selection($form, &$form_state) {
   return $form;
 }
 
+/**
+ * Helper form: get the sorting form for the provided nodes
+ *
+ * @param $form
+ * @param $nodes
+ * @return mixed
+ */
 function _scs_get_sorting_form($form, $nodes) {
   $form['nodes']['#tree'] = TRUE;
   // Create elements for the tablesort
@@ -308,11 +319,18 @@ function _scs_get_sorting_form($form, $nodes) {
       ),
     );
   }
-  $form['#theme'] = 'scs_node_selection';
+  $form['#theme'] = 'scs_sortable_table';
   return $form;
 }
 
-function _scs_get_metadata_form($form) { // Newsletter-related elements
+/**
+ * Helper form: get the metadata form fields
+ *
+ * @param $form
+ * @return mixed
+ */
+function _scs_get_metadata_form($form) {
+  // Newsletter-related elements
   $form['scs_title'] = array(
     '#type' => 'textfield',
     '#title' => t('Title'),
