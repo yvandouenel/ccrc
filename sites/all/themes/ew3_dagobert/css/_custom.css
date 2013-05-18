@@ -1266,7 +1266,7 @@ body.section-marches-publics h2#page-title{
 .page-user #content, body.page-node-176 #content, .node-liste-marches-publics,
 .section-tourisme-et-loisirs .view-etablissements-sitra .view-content,
 #block-views-offre-emplois-block-statutaire, #block-views-offre-emplois-block-2,
-body.node-type-etablissements div.node-etablissements{
+body.node-type-etablissements div.node-etablissements, #site-map{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px 120px 12px;
