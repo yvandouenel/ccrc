@@ -387,7 +387,7 @@ div#block-menu-menu-menus-bas-gauche ul li a:hover{
     text-indent: -5000px;
     width: 47px;
 }
-.menu-name-menu-menu-commodit-haut ul li.menu-mlid-878 a{
+.menu-name-menu-menu-commodit-haut ul li.menu-mlid-1278 a{
    background: url(../images/icons/btContact.png) no-repeat 0 0;
 }
 .menu-name-menu-menu-commodit-haut ul li.menu-mlid-396 a{
@@ -687,12 +687,12 @@ body.front #block-om-maximenu-om-maximenu-1{
 .om-maximenu-no-style .om-maximenu-middle {
     background : #F5F5F5 url(../images/fond_big_menu.gif) no-repeat 52% 0;
 }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-2 .om-maximenu-content{border-color: #DD9D17; }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-4 .om-maximenu-content{border-color: #D40136; }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-3 .om-maximenu-content{border-color: #EE8303; }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-5 .om-maximenu-content{border-color: #99BF10; }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-6 .om-maximenu-content{border-color: #5F9C03; }
-#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-1 .om-maximenu-content{border-color: #4F9CCA; }
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-2 .om-maximenu-content{border-color: #DD9D17; overflow:hidden;}
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-4 .om-maximenu-content{border-color: #D40136; overflow:hidden;}
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-3 .om-maximenu-content{border-color: #EE8303; overflow:hidden;}
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-5 .om-maximenu-content{border-color: #99BF10; overflow:hidden;}
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-6 .om-maximenu-content{border-color: #5F9C03; overflow:hidden;}
+#block-om-maximenu-om-maximenu-1 li#om-leaf-om-u1-654698953-1 .om-maximenu-content{border-color: #4F9CCA; overflow:hidden;}
 /* Première colonne du megamenu ************************************************/
 #block-om-maximenu-om-maximenu-1 .om-maximenu-content .om-maximenu-middle-right .block-views-id-textes_mega_menus-block,
 .block-views-id-textes_mega_menus-block_1, .block-views-id-textes_mega_menus-block_2,
@@ -1266,7 +1266,7 @@ body.section-marches-publics h2#page-title{
 .page-user #content, body.page-node-176 #content, .node-liste-marches-publics,
 .section-tourisme-et-loisirs .view-etablissements-sitra .view-content,
 #block-views-offre-emplois-block-statutaire, #block-views-offre-emplois-block-2,
-body.node-type-etablissements div.node-etablissements, #site-map{
+body.node-type-etablissements div.node-etablissements, #site-map,.webform-confirmation{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px 120px 12px;
