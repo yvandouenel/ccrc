@@ -1,3 +1,4 @@
+jQuery(function($) {//dom chargé, pas de variables globales, pas de collisions avec d'autres alias
 
 //paramètres de base
 var diaporama_width = 311;
@@ -8,7 +9,7 @@ var over_image = 0; // le résumé apparait au survol de l'image
 
 var class_du_diapo ="#block-views-actualites-accueil-block";
 var ul_du_diapo ="#block-views-actualites-accueil-block ul";
-var li_du_diapo ="#block-views-actualites-accueil-block ul li";
+var li_du_diapo ="#block-views-actualites-accueil-block ul li.views-row";
 var class_du_resume = ".views-field-field-summary-news";
 var base_url="";
 
@@ -43,8 +44,6 @@ var base_url="";
  *     float : left;
  * }
  */
-
-jQuery(document).ready(function(){
 
   if(class_text_control){
        //Création du div contenant les "controleurs"

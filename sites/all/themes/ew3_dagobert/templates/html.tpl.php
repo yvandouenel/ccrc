@@ -116,7 +116,7 @@
             <li><a accesskey="m" href="/sitemap">Plan du site</a></li>
             <li><a href="/informations_legales">Informations légales</a></li>
             <li><a href="/credits">Crédits</a></li>
-            <li class="fluxRSS"><a href="rss">Flux RSS</a></li>
+            <li class="fluxRSS"><a href="/rss">Flux RSS</a></li>
         </ul>
     </div>
  </div>

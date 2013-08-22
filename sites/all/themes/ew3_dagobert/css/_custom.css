@@ -536,7 +536,8 @@ body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li ul li a{
     background : url(../images/icons/bgMenuRouge.png) no-repeat 3px 5px;
 }
 body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li a:hover,
-body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li a.active{
+body.section-tourisme-et-loisirs .region-sidebar-first ul.menu li a.active,
+body.section-agenda .region-sidebar-first ul.menu li a.active{
     background : #D40136 url(../images/icons/bgLienMegaMenuWhite.png) no-repeat 3px 5px;
     color : white;
 }
@@ -902,6 +903,10 @@ display: none;
     float: left;
     width: 312px;
 }
+#block-block-1 object div p{
+    position : absolute;
+    top : -8000px;
+}
 /* Actualités *****************************************************************/
 #block-views-actualites-accueil-block{
     float: left;
@@ -994,14 +999,8 @@ body.page-actualites #main div#content a#all-actu-home{
     cursor: pointer;
 }
 .views-field-field-summary-news{
-    position : relative;
-    width:282px;
-    padding-left: 8px;
-    margin:16px 0 0 9px;
-    height: 168px;
-    background-color: white;
-    overflow: hidden;
-    display:none;
+ 
+
 }
 .views-field-field-summary-news a{
     display:block;
@@ -1027,6 +1026,7 @@ body.page-actualites #main div#content a#all-actu-home{
 }
 .page-actu-all ul li .views-field-field-image-news{
     float:left;
+    margin-right : 20px;
 }
 .page-actu-all ul li .views-field-field-summary-news{
     float : left;
@@ -1040,14 +1040,13 @@ body.page-actualites #main div#content a#all-actu-home{
     margin-bottom : 0px;
 }
 .page-actu-all ul li h3.title-actu-in-page a{
-    background: url(../images/bgH2InterBleu.gif) no-repeat 10px 8px;
-    padding-left: 20px;
+    background: url(../images/bgH2InterBleu.gif) no-repeat 0 8px;
     font-size: 1.2em;
     color: #000;
     font-family: "Viga", verdana;
     margin : 0px;
     text-decoration :none;
-    padding-top: 0;
+    padding:0 0 0 20px;
 }
 
 /* Agenda accueil *************************************************************/
@@ -1117,7 +1116,7 @@ div.agenda_commune_home{
    top: 20px;
    left : 125px;
    width: 140px;
-   color : #DD9D17;
+   color : #000000;
    text-align : right;
 }
 /* page agenda ****************************************************************/
@@ -1718,4 +1717,8 @@ div.view-marches-publics-view h5{
 }
 div.view-marches-publics-view div.view-content{
    padding-left: 20px;
+}
+
+.menu-mlid-972 ul {
+    display:none;
 }
