@@ -1,4 +1,4 @@
-body{
+body.html{
     background : #BECED9 url(../images/fond_top.png) repeat-x 0 0;
 }
 body.front #over_body{
@@ -180,28 +180,28 @@ body.section-marches-publics .breadcrumb{
 }
 
 /* menu bas gauche ************************************************************/
-div#block-menu-menu-menus-bas-gauche ul{
+div#block-menu-block-11 ul{/*block-menu-menu-menus-bas-gauche*/
     margin:0;
     padding :0;
     position : relative;
     top: 10px;
 }
-div#block-menu-menu-menus-bas-gauche ul li{
+div#block-menu-block-11 ul li{
     margin:0;
     padding :0;
     list-style: none;
     float : left;
 }
-div#block-menu-menu-menus-bas-gauche ul li.first{
+div#block-menu-block-11 ul li.first{
    border-right : 1px dashed #40281E;
 }
-div#block-menu-menu-menus-bas-gauche ul li.last{
+div#block-menu-block-11 ul li.last{
    border-left : 1px dashed #40281E;
 }
-div#block-menu-menu-menus-bas-gauche ul li.first:hover{
+div#block-menu-block-11 ul li.first:hover{
    border-right : 0;
 }
-div#block-menu-menu-menus-bas-gauche ul li a {
+div#block-menu-block-11 ul li a {
    display : block;
    border-radius : 8px 8px 8px 8px;
    padding : 0 10px;
@@ -211,7 +211,7 @@ div#block-menu-menu-menus-bas-gauche ul li a {
    font-size: 0.8em;
    font-family : arial,sans-serif;
 }
-div#block-menu-menu-menus-bas-gauche ul li a:hover{
+div#block-menu-block-11 ul li a:hover{
     background-color: #E4202E;
     color : white;
 }
@@ -1265,7 +1265,8 @@ body.section-marches-publics h2#page-title{
 .page-user #content, body.page-node-176 #content, .node-liste-marches-publics,
 .section-tourisme-et-loisirs .view-etablissements-sitra .view-content,
 #block-views-offre-emplois-block-statutaire, #block-views-offre-emplois-block-2,
-body.node-type-etablissements div.node-etablissements, #site-map,.webform-confirmation{
+body.node-type-etablissements div.node-etablissements, #site-map,.webform-confirmation, 
+.view-informations-internes{
     background-color: #FFF;
     border-radius : 8px 8px 8px 8px;
     padding : 24px 12px 120px 12px;
@@ -1721,4 +1722,33 @@ div.view-marches-publics-view div.view-content{
 
 .menu-mlid-972 ul {
     display:none;
+}
+/* divers *********************************************************************/
+form.node-form{
+    background-color : white;
+}
+form.node-form body{
+    background-color:white;
+    background-image:none;
+}
+
+#views-exposed-form-informations-internes-page select,
+#views-exposed-form-informations-internes-page input{
+    width: 218px;
+}
+#block-views-exp-informations-internes-page {
+    padding : 80px 0 0 0;
+    background : url(../images/icons/search_01.png) no-repeat 0 10px;
+}
+#block-views-exp-informations-internes-page h2{
+    position : absolute;
+    left: -3000px;
+}
+.view-informations-internes h3{
+     background: url(../images/bg_doc_interne.gif) no-repeat 0 100%;
+     padding-bottom : 9px;
+     margin-top : 20px;
+}
+.views-field-title a{
+    text-decoration : none;
 }
