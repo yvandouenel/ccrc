@@ -1752,3 +1752,20 @@ form.node-form body{
 .views-field-title a{
     text-decoration : none;
 }
+/* Toggle styles **************************************************************/
+.field-collection-view{
+    border : 1px solid #DD9D17;
+    border-radius : 8px;
+    padding: 20px;
+}
+.toggled_title{
+    padding-left : 30px;
+    cursor: pointer;
+    text-decoration : underline;
+}
+.opened_title{
+    background : url(../images/menu-expanded.png) no-repeat 5px 50%;
+}
+.closed_title{
+    background : url(../images/menu-collapsed.png) no-repeat 5px 50%;
+}

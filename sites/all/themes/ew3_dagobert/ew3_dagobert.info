@@ -81,6 +81,7 @@ stylesheets[all][] = css/_custom.css
 
 ;scripts[] = js/script.js
 scripts[] = js/top_menu.js
+scripts[] = js/accordion.js
 
 
 ; This section lists the regions defined in Zen's default page.tpl.php and

@@ -1,9 +1,13 @@
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
 nbproject/
+
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
 
 #Ignore export bdd and files
 bdd/
+
+# Ignore node.js server
+scripts/web-server.js
