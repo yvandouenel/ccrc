@@ -1,16 +1,32 @@
 jQuery(document).ready(function(){
-   // get the links of top menu
-   var contenus= new Array();
-   var positions = new Array();
-
+   
    //Récupère le contenu et les positions
-   jQuery(".menu-name-menu-menu-commodit-haut ul li a").each(function(index){
-       contenus[index]=jQuery(this).text();
-       var position = jQuery(this).position();
-       //alert(position.left+" "+position.top);
-       positions[index] = position.left;
-   });
+   jQuery(".field-collection-container .field-type-text").each(function(index){
+       jQuery(this).attr("id","title_para_"+index);
+       jQuery(this).addClass("closed_title");
+       jQuery(this).addClass("toggled_title");
+       
+ 
+       jQuery(this).click(function(event){
+          jQuery("#acc_para_"+index).toggle();
 
+          if(jQuery("#title_para_"+index).hasClass("closed_title")){// test si le paragraphe est fermé...
+              jQuery("#title_para_"+index).addClass("opened_title");
+              jQuery("#title_para_"+index).removeClass("closed_title");
+             
+          }else {
+              jQuery("#title_para_"+index).addClass("closed_title");
+              jQuery("#title_para_"+index).removeClass("opened_title");
+          }
+       });
+      
+   });
+   jQuery(".field-collection-container .field-type-text-long").each(function(index){
+       jQuery(this).hide();
+       jQuery(this).attr("id","acc_para_"+index);
+   });
+   
+/*
    //Crée les div et les introduits dans le header
    for(i=0;i<contenus.length;i++){
     var position_y = positions[i]-28;
@@ -46,5 +62,5 @@ jQuery(document).ready(function(){
      jQuery(".menu-name-menu-menu-commodit-haut ul li a").mouseout(function(event){
          jQuery('.over_menu').hide();
        });
-  
+  */
 });
