@@ -8,6 +8,7 @@ sites/*/private
 
 #Ignore export bdd and files
 bdd/
+backup/
 
 # Ignore node.js server
 scripts/web-server.js
