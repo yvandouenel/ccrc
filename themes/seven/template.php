@@ -1,32 +1,4 @@
 <?php
-/**
- * Each selected node goes true this function to create a nice body
- */
-function seven_scs_node_output($node) {
-   //TODO Fix a teaser of this node
-  $output = '';
-  $output = '<div id="node_' . $node['nid'] . '"><a name="node_'.$node['nid'].'" id="node_'.$node['nid'].'"></a>';
-  $output .= '<h3><a href="node/'.$node['nid'].'">' . $node['title'] . '</a></h3>';
-  if (isset($node['field_image_news'])) {
-      //$output .= '<h1>Il y a une image !!!</h1>';
-      $img_path= image_style_url("actu_home", $node['field_image_news']['und'][0]['uri']);
-      //kprint_r($node);
-      $output .= '<div class="div_img_nl"><a href="node/'.$node['nid'].'"><img src="'.$img_path.'" alt="en savoir plus sur '.$node['title'].'" style="float: left; margin: 0 10px 15px 0;" /></a></div>';
-  }
-  if (isset($node['field_agenda_image']) && isset($node['field_agenda_image']['und'][0]['filename'])) {
-      //$output .= '<h1>Il y a une image !!!</h1>';
-      $img_path= image_style_url("actu_home", $node['field_agenda_image']['und'][0]['uri']);
-      //kprint_r($node);
-      $output .= '<div class="div_img_nl"><a href="node/'.$node['nid'].'"><img src="'.$img_path.'" alt="en savoir plus sur '.$node['title'].'" style="float: left; margin: 0 10px 0 0;" /></a></div>';
-  }
-  if (isset($node['body'])) {
-    $output .= $node['body'][LANGUAGE_NONE][0]['value'];
-  }
-  $output .= '<p class="p_know_more">' . l("En savoir plus", 'node/' . $node['nid']) . '</p>';
-  $output .= '</div>';
-
-  return $output;
-}
 
 /**
  * Override or insert variables into the maintenance page template.
